@@ -8,7 +8,7 @@ EGIT_REPO_URI="git://git.fedorahosted.org/pyblock.git"
 inherit base git
 
 DESCRIPTION="Python interface for working with block devices"
-HOMEPAGE="http://git.fedoraproject.org/git/pyblock.git?p=pyblock.git;a=summary"
+HOMEPAGE="http://git.fedorahosted.org/git/pyblock.git?p=pyblock.git;a=summary"
 SRC_URI=""
 
 LICENSE="GPL-2"
@@ -26,5 +26,7 @@ DEPEND="${DEPEND}
 src_compile() {
 	local use_selinux=0
 	use selinux && use_selinux=1
+	export EPATCH_OPTS="-d${S}"
+	epatch "${FILESDIR}"/Werror.patch
 	base_src_compile USESELINUX="${use_selinux}"
 }
