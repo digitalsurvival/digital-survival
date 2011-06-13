@@ -29,3 +29,7 @@ src_configure() {
 	econf $(use_with ldap) $(use_with popt) $(use_with sasl) \
 		$(use_with selinux) --with-python
 }
+
+src_install() {
+	emake -j1 DESTDIR="${D}" install || die "Install failed"
+}
