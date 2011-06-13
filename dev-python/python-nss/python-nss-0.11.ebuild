@@ -5,11 +5,14 @@
 EAPI="2"
 SUPPORT_PYTHON_ABIS="1"
 
-inherit distutils eutils
+inherit distutils eutils versionator
 
 DESCRIPTION="Python bindings for Network Security Services (NSS)"
 HOMEPAGE="http://people.redhat.com/jdennis/python-nss/doc/api/html"
-SRC_URI="mirror://sabayon/${CATEGORY}/${P}.tar.lzma"
+
+MY_PV=$(replace_all_version_separators '_')
+
+SRC_URI="http://ftp.mozilla.org/pub/mozilla.org/security/${PN}/releases/PYNSS_RELEASE_${MY_PV}_0/src/${P}.tar.bz2"
 
 LICENSE="|| ( MPL-1.1 GPL-2 LGPL-2 )"
 SLOT="0"

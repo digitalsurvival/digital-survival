@@ -1,12 +1,12 @@
-diff -Nurp python-nss-0.8.orig/setup.py python-nss-0.8/setup.py
---- python-nss-0.8.orig/setup.py	2009-09-21 21:18:37.000000000 +0200
-+++ python-nss-0.8/setup.py	2010-04-01 19:46:44.172982047 +0200
-@@ -310,32 +310,36 @@ extra_compile_args = []
+--- python-nss-0.11.orig/setup.py	2011-02-21 17:12:14.000000000 +0000
++++ python-nss-0.11/setup.py	2011-06-13 12:45:43.943609000 +0000
+@@ -310,37 +310,41 @@ extra_compile_args = []
  nss_error_extension = \
      Extension('nss.error',
                sources            = ['src/py_nspr_error.c'],
 -              include_dirs       = ['/usr/include/nss3', '/usr/include/nspr4'],
 +              include_dirs       = ['/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h'],
                libraries          = ['nspr4'],
 +              library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
                extra_compile_args = extra_compile_args,
@@ -17,8 +17,9 @@ diff -Nurp python-nss-0.8.orig/setup.py python-nss-0.8/setup.py
                sources            = ['src/py_nspr_io.c'],
 -              include_dirs       = ['/usr/include/nss3', '/usr/include/nspr4'],
 +              include_dirs       = ['/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h', 'src/py_nspr_io.h'],
                libraries          = ['nspr4'],
-+              library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
++	       library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
                extra_compile_args = extra_compile_args,
                )
  
@@ -27,8 +28,9 @@ diff -Nurp python-nss-0.8.orig/setup.py python-nss-0.8/setup.py
                sources            = ['src/py_nss.c'],
 -              include_dirs       = ['src', '/usr/include/nss3', '/usr/include/nspr4'],
 +              include_dirs       = ['src', '/usr/include/nss', '/usr/include/nspr'],
-               libraries          = ['nspr4', 'ssl3'],
-+              library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h', 'src/py_nss.h'],
+               libraries          = ['nspr4', 'ssl3', 'nss3'],
++	       library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
                extra_compile_args = extra_compile_args,
                )
  
@@ -37,8 +39,11 @@ diff -Nurp python-nss-0.8.orig/setup.py python-nss-0.8/setup.py
                sources            = ['src/py_ssl.c'],
 -              include_dirs       = ['src', '/usr/include/nss3', '/usr/include/nspr4'],
 +              include_dirs       = ['src', '/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h', 'src/py_nspr_io.h',
+                                     'src/py_ssl.h', 'src/py_nss.h'],
                libraries          = ['nspr4', 'ssl3'],
-+              library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
++	       library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
                extra_compile_args = extra_compile_args,
                )
  
+
