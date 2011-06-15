@@ -60,6 +60,9 @@ src_unpack() {
 	else
 		base_src_unpack
 	fi
+	# Patch the internal libs to fix new glibc incompatibility
+	epatch "${FILESDIR}/audit-glibc-fix.patch"
+	epatch "${FILESDIR}/libselinux-glibc-fix.patch"
 }
 
 src_prepare() {
