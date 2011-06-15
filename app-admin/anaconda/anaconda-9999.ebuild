@@ -6,7 +6,7 @@ EAPI="2"
 
 if [ "${PV}" = "9999" ]; then
 	EGIT_COMMIT="master"
-	EGIT_REPO_URI="git://sabayon.org/projects/anaconda.git"
+	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/anaconda.git"
 	MY_ECLASS="git"
 fi
 inherit flag-o-matic base python libtool autotools eutils ${MY_ECLASS}
@@ -18,8 +18,8 @@ SEPOL_VER="2.0"
 LSELINUX_VER="2.0.85"
 LSELINUX_SRC_URI="http://userspace.selinuxproject.org/releases/current/devel/libselinux-${LSELINUX_VER}.tar.gz"
 
-DESCRIPTION="Sabayon Redhat Anaconda Installer Port"
-HOMEPAGE="http://gitweb.sabayon.org/?p=anaconda.git;a=summary"
+DESCRIPTION="Gentoo Redhat Anaconda Installer Port"
+HOMEPAGE="http://git.overlays.gentoo.org/gitweb/?p=proj/anaconda.git;a=summary"
 if [ "${PV}" = "9999" ]; then
 	SRC_URI="${AUDIT_SRC_URI} ${LSELINUX_SRC_URI}"
 	KEYWORDS=""
@@ -50,12 +50,8 @@ COMMON_DEPEND="app-admin/system-config-keyboard
 DEPEND="${COMMON_DEPEND} ${AUDIT_DEPEND} ${LSELINUX_DEPEND} sys-apps/sed"
 RDEPEND="${COMMON_DEPEND} ${AUDIT_RDEPEND}
 	${LSELINUX_RDEPEND} ${LSELINUX_CONFLICT}
-	>=app-misc/anaconda-runtime-1.1"
-
-# FIXME:
-# for anaconda-gtk we would require also
-#   dev-python/pygtk
-#   x11-libs/pango
+	app-misc/anaconda-runtime
+	app-misc/anaconda-runtime-gui"
 
 src_unpack() {
 	if [ "${PV}" = "9999" ]; then
