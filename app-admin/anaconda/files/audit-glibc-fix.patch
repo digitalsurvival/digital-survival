@@ -1,5 +1,5 @@
---- ../audit-1.7.9.orig/lib/libaudit.c	2008-11-05 18:56:26.000000000 +0000
-+++ ../audit-1.7.9/lib/libaudit.c	2011-06-09 22:18:36.861689444 +0000
+--- lib.orig/libaudit.c	2008-11-05 18:56:26.000000000 +0000
++++ lib/libaudit.c	2011-06-09 22:18:36.861689444 +0000
 @@ -36,6 +36,7 @@
  #include <sys/utsname.h>
  #include <fcntl.h>	/* O_NOFOLLOW needs gnu defined */

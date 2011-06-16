@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64 ~ppc ~mips"
 IUSE="modules utils debug"
 DEPEND="virtual/linux-sources app-doc/doxygen"
-RDEPEND="virtual/modutils sys-apps/util-linux"
+RDEPEND="sys-apps/module-init-tools sys-apps/util-linux"
 
 S="${WORKDIR}/${MY_PV}"
 
