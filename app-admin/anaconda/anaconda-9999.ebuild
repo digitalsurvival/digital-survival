@@ -166,8 +166,8 @@ src_compile() {
 		INCLUDEDIR="${D}/usr/include/anaconda-runtime" \
 		pywrap || die
 
-        # add compatibility aliases to swig wrapper
-        cat "${FILESDIR}/compat.py" >> "${LSELINUX_S}/src/selinux.py" || die
+		# add compatibility aliases to swig wrapper
+		cat "${FILESDIR}/compat.py" >> "${LSELINUX_S}/src/selinux.py" || die
 
 }
 
@@ -208,6 +208,8 @@ src_install() {
 	# Cleanup .pyc .pyo
 	find "${D}" -name "*.py[co]" -type f -delete
 
+	dodir /usr/libexec/fcoe
+	cp "${S}/fcoe_edd.sh" "${D}"
 }
 
 pkg_postrm() {
