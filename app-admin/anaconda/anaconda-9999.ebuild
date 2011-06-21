@@ -209,7 +209,7 @@ src_install() {
 	find "${D}" -name "*.py[co]" -type f -delete
 
 	dodir /usr/libexec/fcoe
-	cp "${S}/fcoe_edd.sh" "${D}"
+	cp "${S}/fcoe_edd.sh" "${D}/usr/libexec/fcoe/"
 }
 
 pkg_postrm() {
