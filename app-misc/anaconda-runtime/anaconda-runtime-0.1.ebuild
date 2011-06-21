@@ -15,7 +15,7 @@ DEPEND=""
 RDEPEND="app-admin/system-config-date
 	app-admin/system-config-users
 	>=app-misc/sabayonlive-tools-2.1.1
-	>=app-misc/sabayon-version-5-r1
+	=app-misc/gentoo-version-11
 	app-text/xmlto
 	dev-libs/elfutils
 	dev-libs/libnl
