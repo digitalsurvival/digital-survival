@@ -10,7 +10,7 @@ HOMEPAGE="https://fedorahosted.org/system-config-keyboard/wiki"
 SRC_URI="https://fedorahosted.org/released/system-config-keyboard/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE=""
 DEPEND="dev-util/intltool

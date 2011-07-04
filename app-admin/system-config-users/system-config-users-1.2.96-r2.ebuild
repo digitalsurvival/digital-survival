@@ -10,7 +10,7 @@ HOMEPAGE="http://fedoraproject.org/wiki/SystemConfig/users"
 SRC_URI="https://fedorahosted.org/released/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-1"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE="X"
 
