@@ -10,7 +10,7 @@ HOMEPAGE="https://fedorahosted.org/libuser"
 SRC_URI="https://fedorahosted.org/releases/l/i/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE="ldap +popt sasl selinux"
 COMMON_DEPEND="dev-libs/glib:2
