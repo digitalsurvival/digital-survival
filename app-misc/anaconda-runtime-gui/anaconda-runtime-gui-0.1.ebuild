@@ -24,4 +24,5 @@ RDEPEND="app-misc/anaconda-runtime
 	x11-libs/libXrender
 	x11-libs/pango
 	x11-libs/pixman
-	x11-libs/xcb-util"
+	x11-libs/xcb-util
+	dev-python/python-meh[gtk]"
