@@ -18,7 +18,7 @@ COMMON_DEPEND="dev-libs/glib:2
 	popt? ( dev-libs/popt )
 	sasl? ( dev-libs/cyrus-sasl )
 	selinux? ( sys-libs/libselinux )"
-DEPEND="app-text/linuxdoc-tools
+DEPEND="
 	sys-devel/bison
 	sys-devel/gettext
 	${COMMON_DEPEND}"
@@ -26,6 +26,7 @@ RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	cd "${S}"
+	epatch "${FILESDIR}/nodocs.patch"
 	econf $(use_with ldap) $(use_with popt) $(use_with sasl) \
 		$(use_with selinux) --with-python
 }
