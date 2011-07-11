@@ -157,6 +157,8 @@ src_prepare() {
 	# Genkernel doesn't support "single" for rescue mode
 	# but rather init_opts=single
 	epatch "${FILESDIR}"/${PN}-1.98-genkernel-initramfs-single.patch
+	# Gentoo doesn't play nicely with load_video
+	epatch "${FILESDIR}"/disable_load_video.patch
 
 	sed -i -e '/^autoreconf/ d' autogen.sh || die
 	(. ./autogen.sh) || die
