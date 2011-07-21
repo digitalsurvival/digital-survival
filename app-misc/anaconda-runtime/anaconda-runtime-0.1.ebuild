@@ -14,7 +14,6 @@ SLOT="0"
 DEPEND=""
 RDEPEND="app-admin/system-config-date
 	app-admin/system-config-users
-	>=app-misc/sabayonlive-tools-2.1.1
 	=app-misc/gentoo-version-11
 	app-text/xmlto
 	dev-libs/elfutils
