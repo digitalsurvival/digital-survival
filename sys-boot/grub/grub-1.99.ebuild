@@ -210,7 +210,7 @@ src_install() {
 	insinto /etc/default
 	newins "${FILESDIR}"/grub2-default-1.99 grub
 	cat <<-EOF >> "${D}"/lib*/grub/grub-mkconfig_lib
-	GRUB_DISTRIBUTOR="Sabayon"
+	GRUB_DISTRIBUTOR="Gentoo"
 EOF
 
 	# Install fonts setup hook
