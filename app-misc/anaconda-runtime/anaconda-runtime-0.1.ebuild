@@ -12,9 +12,7 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND=""
-RDEPEND="app-admin/system-config-date
-	app-admin/system-config-users
-	=app-misc/gentoo-version-11
+RDEPEND="=app-misc/gentoo-version-11
 	app-text/xmlto
 	dev-libs/elfutils
 	dev-libs/libnl
@@ -30,7 +28,6 @@ RDEPEND="app-admin/system-config-date
 	net-misc/dhcp
 	>=net-misc/networkmanager-0.7.2
 	sys-apps/dmidecode
-	sys-apps/language-configuration-helpers
 	>=sys-boot/grub-1.98
 	sys-boot/makebootfat
 	sys-fs/btrfs-progs
