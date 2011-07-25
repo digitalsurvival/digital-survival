@@ -25,9 +25,6 @@ RDEPEND="dev-libs/openssl
 
 src_prepare() {
 
-	epatch "${FILESDIR}"/${P}-disable-rpm.patch
-	epatch "${FILESDIR}"/${P}-fix-version-detection.patch
-
 	eautoreconf || die "cannot run eautoreconf"
 	autoreconf -i || die "wtf"
 	eautomake || die "cannot run eautomake"
