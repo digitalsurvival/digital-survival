@@ -25,7 +25,6 @@ RDEPEND="dev-libs/openssl
 
 src_prepare() {
 
-	epatch "${FILESDIR}"/${P}-sabayon-defaults.patch
 	epatch "${FILESDIR}"/${P}-disable-rpm.patch
 	epatch "${FILESDIR}"/${P}-fix-version-detection.patch
 
