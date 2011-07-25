@@ -1,6 +1,6 @@
 diff -Nurp python-report-0.23.orig//python/report/templates/bugzilla-template/filer.py python-report-0.23/python/report/templates/bugzilla-template/filer.py
---- python-report-0.10.orig//python/report/templates/bugzilla-template/filer.py	2010-04-13 23:08:08.849090647 +0200
-+++ python-report-0.10/python/report/templates/bugzilla-template/filer.py	2010-04-13 23:09:20.799052132 +0200
+--- python-report-0.23.orig//python/report/templates/bugzilla-template/filer.py	2010-04-13 23:08:08.849090647 +0200
++++ python-report-0.23/python/report/templates/bugzilla-template/filer.py	2010-04-13 23:09:20.799052132 +0200
 @@ -61,15 +61,11 @@ def getVersion():
          if os.path.exists(SYSTEM_VERSION_PATH):
              file = open(SYSTEM_VERSION_PATH, "r")
