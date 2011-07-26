@@ -56,6 +56,7 @@ RDEPEND="
 	truetype? ( media-libs/freetype >=media-fonts/unifont-5 )"
 DEPEND="${RDEPEND}
 	>=dev-lang/python-2.5.2
+	sys-devel/flex
 "
 if [[ ${PV} == "9999" ]]; then
 	DEPEND+=" >=sys-devel/autogen-5.10 sys-apps/help2man"
