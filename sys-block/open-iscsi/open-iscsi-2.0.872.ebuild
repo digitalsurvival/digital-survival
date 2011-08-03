@@ -15,7 +15,8 @@ KEYWORDS="amd64 x86"
 IUSE="debug slp"
 DEPEND="net-libs/openslp"
 RDEPEND="${DEPEND}
-		sys-apps/util-linux"
+		sys-apps/util-linux
+		app-doc/doxygen"
 
 S="${WORKDIR}/${MY_PV}"
 
