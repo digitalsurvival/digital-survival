@@ -160,6 +160,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.98-genkernel-initramfs-single.patch
 	# Gentoo doesn't play nicely with load_video
 	epatch "${FILESDIR}"/disable_load_video.patch
+	epatch "${FILESDIR}"/add-x86-to-supported-targets.patch
 
 	sed -i -e '/^autoreconf/ d' autogen.sh || die
 	(. ./autogen.sh) || die
