@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-EGIT_REPO_URI="http://git.fedorahosted.org/report.git"
+EGIT_REPO_URI="http://git.fedorahosted.org/git/report.git"
 EGIT_COMMIT="${PV}"
 inherit base git autotools eutils
 
