@@ -4,7 +4,7 @@
 
 EAPI="2"
 EGIT_COMMIT="${PN}-${PV}-1"
-EGIT_REPO_URI="git://git.fedorahosted.org/pyblock.git"
+EGIT_REPO_URI="http://git.fedorahosted.org/git/pyblock.git"
 inherit base git
 
 DESCRIPTION="Python interface for working with block devices"

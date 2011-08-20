@@ -46,7 +46,7 @@ COMMON_DEPEND="app-admin/system-config-keyboard
 	dev-libs/newt
 	nfs? ( net-fs/nfs-utils )
 	sys-fs/lvm2
-	sys-block/open-iscsi"
+	=sys-block/open-iscsi-2.0.872"
 DEPEND="${COMMON_DEPEND} ${AUDIT_DEPEND} ${LSELINUX_DEPEND} sys-apps/sed"
 RDEPEND="${COMMON_DEPEND} ${AUDIT_RDEPEND}
 	${LSELINUX_RDEPEND} ${LSELINUX_CONFLICT}
@@ -217,5 +217,5 @@ pkg_postrm() {
 }
 
 pkg_postinst() {
-	python_mod_optimize $(python_get_sitedir)/py${PN}
+	python_mod_optimize py${PN}
 }

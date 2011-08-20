@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=3
-inherit distutils versionator linux-info eutils flag-o-matic autotools
+inherit distutils versionator linux-info eutils flag-o-matic autotools linux-mod
 
 DESCRIPTION="Open-iSCSI is a high performance, transport independent, multi-platform implementation of RFC3720"
 HOMEPAGE="http://www.open-iscsi.org/"
@@ -23,9 +23,8 @@ S="${WORKDIR}/${MY_PV}"
 pkg_setup() {
 	linux-info_pkg_setup
 
-	if [ $KV_PATCH -lt 15 ]; then
-		die "Sorry, your kernel must be 2.6.16-rc5 or newer!"
-	fi
+	get_version
+	kernel_is lt 2 6 16 && die "Sorry, your kernel must be 2.6.16-rc5 or newer!"
 }
 
 src_prepare() {
