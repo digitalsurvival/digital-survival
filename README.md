@@ -2,11 +2,11 @@
 
 ### app-misc/nixnote ###
 
-An open source Evernote clone for Linux. I will be working on releasing both versions in the Portage tree.
+An open source Evernote clone for Linux. I will be working on releasing *both* versions in the Portage tree.
 
-### media-video/obs-studio ###
+### media-video/obs-studio* ###
 
-`USE=pulseaudio` is *needed* to capture audio. PulseAudio is the only available method to capture audio in OBS Studio.
+`USE=pulseaudio` is required to capture audio. PulseAudio is the only available method to capture audio in OBS Studio.
 
 QT5 is required for OBS Studio. QT5 is currently only available on unstable architectures (~arch). To use OBS Studio on stable to add QT5 to `/etc/portage/package.keywords`
 
@@ -17,6 +17,8 @@ A file for symlinking is provided in the Documentation directory:
 <pre>
 ln -s <path to overlay>/Documentation/package.keywords/obs-studio-live /etc/portage/package.keywords/obs-studio-live
 </pre>
+
+<sup><small><small>* This ebuild was based on [saintdev's ebuild](https://github.com/saintdev/obs-studio-overlay).</small></small></sup>
 
 ### sys-auth/ppp-pam ###
 
