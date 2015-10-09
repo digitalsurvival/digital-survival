@@ -20,7 +20,7 @@ HOMEPAGE="https://github.com/digitalsurvival/ppp-pam"
 LICENSE="GPL-2"
 
 SLOT="0"
-IUSE=""
+IUSE="test"
 
 DEPEND=""
 
@@ -31,9 +31,26 @@ src_prepare() {
 }
 
 src_configure() {
+	if [[ -x ${ECONF_SOURCE:-.}/configure ]] ; then
+		econf
+	fi
+}
 
+src_compile() {
+	if [ -f Makefile.am ]; then
+		emake || die "emake failed"
+	fi
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+	#dodoc README CHANGES
 }
 
 pkg_postinst() {
 
+	elog "Note: Although the ppp module is now installed it requires manual"
+	elog "configuration steps for implementation. Please configure PAM to" 
+	elog "use this module before proceeding. For more information see:"
+	elog "https://github.com/DigitalSurvival/ppp-pam/blob/master/README.md"
 }
