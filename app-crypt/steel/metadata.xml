@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+	<email>maffblaster@gentoo.org</email>
+</maintainer>
+<longdescription>A command-line password manager supporting AES encryption and 256-bit keys</longdescription>
+<use>
+ <!-- TODO -->
+</use>
+</pkgmetadata>
