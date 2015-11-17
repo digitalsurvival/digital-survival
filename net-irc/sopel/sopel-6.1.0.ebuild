@@ -1,5 +1,5 @@
 EAPI=5
-inherit eutils cmake-utils
+inherit eutils
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -18,13 +18,12 @@ LICENSE="EFL-2.0"
 SLOT="0"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-python/xmltodict
+dev-python/pytz
+
+"
 
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-
-}
 
 src_configure() {
 
@@ -32,7 +31,6 @@ src_configure() {
 
 src_install()
 {
-    return
 }
 
 pkg_postinst() {

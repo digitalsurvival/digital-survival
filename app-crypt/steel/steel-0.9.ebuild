@@ -2,12 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 EAPI=5
-inherit eutils cmake-utils
+inherit eutils cmake-utils vcs-snapshot
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.com/Rosvall/steel.git
-		git://github.com/baumgarr/nixnote2.git"
+	EGIT_REPO_URI="https://gitlab.com/Rosvall/steel.git"
 else
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://gitlab.com/Rosvall/${PN}/repository/archive.tar.gz?ref=v${PV}.tar.gz -> ${P}.tar.gz"
