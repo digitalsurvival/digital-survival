@@ -20,7 +20,9 @@ IUSE=""
 
 DEPEND="dev-python/xmltodict
 dev-python/pytz
-
+dev-python/praw
+dev-python/pyenchant
+dev-python/pygeoip
 "
 
 RDEPEND="${DEPEND}"
