@@ -55,7 +55,6 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	CMAKE_REMOVE_MODULES_LIST=(FindFreetype)
-
 	cmake-utils_src_prepare
 }
 
