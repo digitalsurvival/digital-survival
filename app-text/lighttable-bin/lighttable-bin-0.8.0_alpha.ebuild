@@ -7,11 +7,11 @@ EAPI="5"
 inherit vcs-snapshot
 
 MY_PN="lighttable"
-MY_P="${MY_PN}-${PV}"
+MY_P="${MY_PN}-${PV/_/-}-linux"
 
 DESCRIPTION="A next-generation open source text editor for rapid software development."
 HOMEPAGE="http://lighttable.com/"
-SRC_URI="https://github.com/LightTable/${MY_PN}/releases/download/${PV/_/-}/${MY_P/_/-}-linux.tar.gz"
+SRC_URI="https://github.com/LightTable/${MY_PN}/releases/download/${PV/_/-}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,12 +21,12 @@ src_unpack() {
 	vcs-snapshot_src_unpack
 }
 
-src_install() {
-	local dest="/opt/${P}" 
+S=${WORKDIR}/${MY_P}
 
+src_install() {
+	local dest="/opt/${MY_P}" 
 	dodir ${dest}
 	insinto ${dest}
-	dobin light || "dobin failed"
-	dodoc LICENSE || "dodoc failed"
-	#cp -R "${S}/" "${D}/" || die "Install failed!"
+	dobin lighttable || "dobin failed"
+	cp -R "${S}/" "${D}/" || die "Install failed!"
 }
