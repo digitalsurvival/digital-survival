@@ -11,7 +11,7 @@ MY_P="${MY_PN}-${PV/_/-}-linux"
 
 DESCRIPTION="A next-generation open source text editor for rapid software development."
 HOMEPAGE="http://lighttable.com/"
-SRC_URI="https://github.com/LightTable/${MY_PN}/releases/download/${PV/_/-}/${MY_P}.tar.gz"
+SRC_URI="https://github.com/LightTable/${MY_PN}/releases/download/${PV/_/-}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,12 +21,12 @@ src_unpack() {
 	vcs-snapshot_src_unpack
 }
 
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${P}
 
 src_install() {
-	local dest="/opt/${MY_P}" 
-	dodir ${dest}
-	insinto ${dest}
-	dobin lighttable || "dobin failed"
-	cp -R "${S}/" "${D}/" || die "Install failed!"
+	dodir /opt
+	cp -R "${S}/" "${D}/opt" || die "install failed!"
+	dodir /usr/bin
+	dosym /opt/${P}/light /usr/bin/lighttable-bin || die "dosym failed!"
+	#newexe light lighttable-bin || "newexe failed"
 }
