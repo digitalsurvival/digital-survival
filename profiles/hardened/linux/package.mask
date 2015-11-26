@@ -1,0 +1,2 @@
+#Masking lighttable-bin since it's a pre-built binary package
+lighttable-bin

@@ -27,14 +27,6 @@ dev-python/pygeoip
 
 RDEPEND="${DEPEND}"
 
-src_configure() {
-
-}
-
-src_install()
-{
-}
-
 pkg_postinst() {
 	elog "Thanks for installing Sopel! :)"
 }

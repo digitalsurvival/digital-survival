@@ -9,7 +9,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://gitlab.com/Rosvall/steel.git"
 else
 	KEYWORDS="~x86 ~amd64"
-	SRC_URI="https://gitlab.com/Rosvall/${PN}/repository/archive.tar.gz?ref=v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/Rosvall/${PN}/repository/archive.tar.gz?ref=v${PV} -> ${P}.tar.gz"
 	RESTRICT="primaryuri"
 fi
 

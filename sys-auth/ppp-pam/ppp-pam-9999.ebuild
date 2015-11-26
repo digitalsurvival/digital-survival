@@ -26,10 +26,6 @@ DEPEND=""
 
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-
-}
-
 src_configure() {
 	if [[ -x ${ECONF_SOURCE:-.}/configure ]] ; then
 		econf
