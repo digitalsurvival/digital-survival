@@ -1,8 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
 EAPI=5
-inherit eutils cmake-utils vcs-snapshot
+inherit vcs-snapshot
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -10,7 +11,6 @@ if [[ ${PV} == 9999 ]]; then
 else
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://gitlab.com/Rosvall/${PN}/repository/archive.tar.gz?ref=v${PV} -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
 fi
 
 DESCRIPTION="A command-line password manager supporting AES encryption and 256-bit keys"
@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 "
 
 src_install() {
-    emake DESTDIR="${D}" install
+    dodir /usr/bin
+    emake PREFIX="${D}/usr" install
     dodoc steel.1
 }
