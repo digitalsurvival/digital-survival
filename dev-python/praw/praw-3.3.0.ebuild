@@ -3,8 +3,6 @@
 # $Id$
 EAPI=5
 
-inherit vcs-snapshot
-
 DESCRIPTION="A Python Reddit API Wrapper"
 HOMEPAGE="https://praw.readthedocs.org/en/stable/"
 

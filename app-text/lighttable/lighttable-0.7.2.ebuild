@@ -4,8 +4,6 @@
 
 EAPI="5"
 
-inherit vcs-snapshot
-
 # Cleanly make necessary adjustments for SRC_URI
 MY_PV="${PV/_/-}"
 
@@ -48,10 +46,6 @@ x11-libs/libXrender
 x11-libs/libXtst
 x11-libs/pango
 "
-
-src_unpack() {
-	vcs-snapshot_src_unpack
-}
 
 S="${WORKDIR}/${P}"
 

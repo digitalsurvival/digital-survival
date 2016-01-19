@@ -5,13 +5,17 @@ EAPI="5"
 
 inherit git-r3
 
-DESCRIPTION="connect to microsoft's active directory"
+DESCRIPTION="A GUI front-end for microsoft's active directory"
 HOMEPAGE="http://www.powerbrokeropen.org/"
 EGIT_REPO_URI="git://source.pbis.beyondtrust.com/pbis.git
 "
-#SRC_URI="git://source.pbis.beyondtrust.com/pbis.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND=""
+RDEPEND="${DEPEND}
+#Here be packages
+
+"
