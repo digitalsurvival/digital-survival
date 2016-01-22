@@ -4,7 +4,7 @@
 <maintainer>
 	<email>maffblaster@gentoo.org</email>
 </maintainer>
-<longdescription>Force logins on Django apps</longdescription>
+<longdescription>An IRC-bot written in Python</longdescription>
 <use>
  <!-- TODO -->
 </use>

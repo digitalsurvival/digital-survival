@@ -4,7 +4,7 @@
 <maintainer>
 	<email>maffblaster@gentoo.org</email>
 </maintainer>
-<longdescription>Force logins on Django apps</longdescription>
+<longdescription>A next generation text editor from Adobe.</longdescription>
 <use>
  <!-- TODO -->
 </use>

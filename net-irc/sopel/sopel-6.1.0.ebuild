@@ -1,3 +1,7 @@
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
 EAPI=5
 inherit eutils
 
@@ -13,7 +17,7 @@ fi
 
 DESCRIPTION="An open source IRC bot written in Python."
 HOMEPAGE="http://sopel.chat/"
-LICENSE="EFL-2.0"
+LICENSE="EFL-2"
 
 SLOT="0"
 IUSE=""

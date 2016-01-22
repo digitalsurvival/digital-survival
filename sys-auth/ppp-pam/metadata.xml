@@ -4,7 +4,7 @@
 <maintainer>
 	<email>maffblaster@gentoo.org</email>
 </maintainer>
-<longdescription>Two step authentication for SSH using Perfect Paper Password's one time passwords.</longdescription>
+<longdescription>Two-step SSH authentication using PPP one-time passwords.</longdescription>
 <use>
  <!-- TODO -->
 </use>

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -27,6 +27,8 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
+# Removed dev-util/pkgconfig per repoman
+
 DEPEND="
 dev-qt/qtcore:4
 dev-qt/qtgui:4
@@ -41,7 +43,7 @@ sys-devel/automake
 sys-devel/libtool
 sys-devel/flex
 sys-devel/bison
-dev-util/pkgconfig
+virtual/pkgconfig
 sys-devel/gcc
 dev-libs/openssl
 app-text/htmltidy

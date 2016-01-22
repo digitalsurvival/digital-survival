@@ -4,7 +4,7 @@
 <maintainer>
 	<email>maffblaster@gentoo.org</email>
 </maintainer>
-<longdescription>Force logins on Django apps</longdescription>
+<longdescription>Python Reddit API Wrapper</longdescription>
 <use>
  <!-- TODO -->
 </use>
