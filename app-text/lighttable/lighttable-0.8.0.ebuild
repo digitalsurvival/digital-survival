@@ -6,6 +6,7 @@ EAPI="5"
 
 # Cleanly make necessary adjustments for SRC_URI
 MY_PV="${PV/_/-}"
+MY_PN="LightTable"
 
 DESCRIPTION="A next-generation open source text editor for rapid software development."
 HOMEPAGE="http://lighttable.com/"
@@ -47,13 +48,4 @@ x11-libs/libXtst
 x11-libs/pango
 "
 
-S="${WORKDIR}/${P}"
-
-src_install() {
-	dodir /opt
-	cp --archive "${S}/" "${D}/opt" || die "install failed!"
-	chmod +x /opt/${P}/LightTable
-	dodir /usr/bin
-	dosym /opt/${P}/light /usr/bin/lighttable-bin || die "dosym failed!"
-	#newexe light lighttable-bin || "newexe failed"
-}
+S="${WORKDIR}/${MY_PN}-${PV}"

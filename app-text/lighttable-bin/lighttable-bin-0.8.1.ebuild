@@ -5,13 +5,12 @@
 EAPI="5"
 
 # Cleanly make necessary adjustments for SRC_URI
-MY_PN="lighttable"
 MY_PV="${PV/_/-}"
-MY_P="${MY_PN}-${MY_PV}-linux"
+MY_PN="${PN/-bin}"
 
 DESCRIPTION="A next-generation open source text editor for rapid software development."
 HOMEPAGE="http://lighttable.com/"
-SRC_URI="https://github.com/LightTable/${MY_PN}/releases/download/${MY_PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/LightTable/${PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -49,11 +48,11 @@ x11-libs/libXtst
 x11-libs/pango
 "
 
-S="${WORKDIR}/${P}"
+S="${WORKDIR}/${MY_PN}-${MY_PV}-linux"
 
 src_install() {
 	dodir /opt
 	cp --archive "${S}/" "${D}/opt" || die "install failed!"
 	dodir /usr/bin
-	dosym /opt/${P}/light /usr/bin/lighttable-bin || die "dosym failed!"
+	dosym /opt/${P}-linux/light /usr/bin/${PN} || die "dosym failed!"
 }

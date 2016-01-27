@@ -48,12 +48,3 @@ x11-libs/pango
 "
 
 S="${WORKDIR}/${P}"
-
-src_install() {
-	dodir /opt
-	cp --archive "${S}/" "${D}/opt" || die "install failed!"
-	chmod +x /opt/${P}/LightTable
-	dodir /usr/bin
-	dosym /opt/${P}/light /usr/bin/lighttable-bin || die "dosym failed!"
-	#newexe light lighttable-bin || "newexe failed"
-}
