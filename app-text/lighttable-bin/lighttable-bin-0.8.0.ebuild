@@ -14,7 +14,7 @@ SRC_URI="https://github.com/LightTable/${PN}/archive/${MY_PV}.tar.gz -> ${P}.tar
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="-* ~amd64"
 
 DEPEND=""
 RDEPEND="${DEPEND}
