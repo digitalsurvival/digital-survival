@@ -43,7 +43,7 @@ src_install() {
 
 pkg_postinst() {
 	elog "Note: Although the ppp module is now installed it requires manual"
-	elog "configuration steps for implementation. Please configure PAM to" 
+	elog "configuration steps for implementation. Please configure PAM to"
 	elog "use this module before proceeding. For more information see:"
 	elog "https://github.com/DigitalSurvival/ppp-pam/blob/master/README.md"
 }
