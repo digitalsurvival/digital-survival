@@ -11,7 +11,7 @@ inherit distutils-r1
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/freedombox/plinth.git
-		git://github.com/freedombox/plinth.git"
+	git://github.com/freedombox/plinth.git"
 else
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/freedombox/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -20,7 +20,6 @@ fi
 DESCRIPTION="A python-powered web interface for FreedomBox"
 HOMEPAGE="https://freedomboxfoundation.org/"
 LICENSE="AGPL-3"
-
 SLOT="0"
 IUSE=""
 
@@ -36,7 +35,7 @@ dev-python/django-stronghold
 "
 
 python_install() {
-    distutils-r1_python_install
+	distutils-r1_python_install
 }
 
 pkg_postinst() {

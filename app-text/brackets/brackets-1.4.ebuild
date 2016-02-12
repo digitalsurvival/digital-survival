@@ -11,4 +11,3 @@ SRC_URI="https://github.com/adobe/${PN}/archive/release-${PV}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-

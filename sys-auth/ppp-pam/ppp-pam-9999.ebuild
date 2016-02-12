@@ -14,11 +14,9 @@ else
 	RESTRICT="primaryuri"
 fi
 
-
 DESCRIPTION="Two step authentication for SSH using one time passwords."
 HOMEPAGE="https://github.com/digitalsurvival/ppp-pam"
 LICENSE="GPL-2"
-
 SLOT="0"
 IUSE="test"
 
@@ -44,7 +42,6 @@ src_install() {
 }
 
 pkg_postinst() {
-
 	elog "Note: Although the ppp module is now installed it requires manual"
 	elog "configuration steps for implementation. Please configure PAM to" 
 	elog "use this module before proceeding. For more information see:"

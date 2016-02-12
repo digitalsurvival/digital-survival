@@ -11,7 +11,7 @@ LICENSE="metapackage"
 SLOT="0"
 IUSE=""
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 # ldapscripts needs packaged (it does not exist yet)
 # See https://github.com/freedombox/Plinth/blob/master/INSTALL

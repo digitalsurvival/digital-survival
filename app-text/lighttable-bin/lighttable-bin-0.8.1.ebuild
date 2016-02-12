@@ -4,9 +4,12 @@
 
 EAPI="5"
 
+inherit pax-utils
+
 # Cleanly make necessary adjustments for SRC_URI
 MY_PV="${PV/_/-}"
 MY_PN="${PN/-bin}"
+MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="A next-generation open source text editor for rapid software development."
 HOMEPAGE="http://lighttable.com/"
@@ -47,12 +50,13 @@ x11-libs/libXrender
 x11-libs/libXtst
 x11-libs/pango
 "
-
-S="${WORKDIR}/${MY_PN}-${MY_PV}-linux"
+# Correct package extration name
+S="${WORKDIR}/${MY_PN}-${PV}-linux"
 
 src_install() {
-	dodir /opt
-	cp --archive "${S}/" "${D}/opt" || die "install failed!"
-	dodir /usr/bin
-	dosym /opt/${P}-linux/light /usr/bin/${PN} || die "dosym failed!"
+	dodir /opt/"${P}" || die "dodir /opt failed!"
+	cp --archive "${S}/*" "${D}"/opt/"${P}" || die "cp failed!"
+	pax-mark -PeMRS /opt/"${P}"/LightTable || die "pax-mark failed!"
+	dodir /usr/bin || die "dodir /usr/bin failed"
+	dosym /opt/"${P}"/light /usr/bin/"${PN}" || die "dosym failed!"
 }
