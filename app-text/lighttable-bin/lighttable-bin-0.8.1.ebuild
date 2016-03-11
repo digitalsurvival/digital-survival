@@ -50,12 +50,12 @@ x11-libs/libXrender
 x11-libs/libXtst
 x11-libs/pango
 "
-# Correct package extration name
+# Adjust package extration name
 S="${WORKDIR}/${MY_PN}-${PV}-linux"
 
 src_install() {
 	dodir /opt/"${P}" || die "dodir /opt failed!"
-	cp --archive "${S}/*" "${D}"/opt/"${P}" || die "cp failed!"
+	cp --archive "${S}"/* "${D}"/opt/"${P}" || die "cp failed!"
 	pax-mark -PeMRS /opt/"${P}"/LightTable || die "pax-mark failed!"
 	dodir /usr/bin || die "dodir /usr/bin failed"
 	dosym /opt/"${P}"/light /usr/bin/"${PN}" || die "dosym failed!"

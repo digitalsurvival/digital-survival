@@ -33,4 +33,6 @@ RDEPEND="${DEPEND}"
 
 pkg_postinst() {
 	elog "Thanks for installing Sopel! :)"
+	elog "More information can be found on Sopel's GitHub wiki at:"
+	elog "https://github.com/sopel-irc/sopel/wiki"
 }
