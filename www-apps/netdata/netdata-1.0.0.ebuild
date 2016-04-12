@@ -29,7 +29,7 @@ RDEPEND="zlib? ( sys-libs/zlib )"
 
 pkg_setup() {
 	enewgroup netdata
-	enewuser netdata -1 /sbin/nologin / netdata --comment netdata --system
+	enewuser 'netdata' -1 '/sbin/nologin' '/' 'netdata' --comment netdata --system
 }
 
 src_prepare() {
