@@ -17,7 +17,7 @@ SRC_URI="https://github.com/LightTable/${PN}/archive/${MY_PV}.tar.gz -> ${P}.tar
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~x86"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -58,5 +58,7 @@ src_install() {
 	cp --archive "${S}"/* "${D}"/opt/"${P}" || die "cp failed!"
 	pax-mark -PeMRS /opt/"${P}"/LightTable || die "pax-mark failed!"
 	dodir /usr/bin || die "dodir /usr/bin failed"
-	dosym /opt/"${P}"/light /usr/bin/"${PN}" || die "dosym failed!"
+	dosym /opt/"${P}"/LightTable /usr/bin/"${PN}" || die "dosym failed!"
+	x86?   ( dosym )
+	amd64?   ( 
 }

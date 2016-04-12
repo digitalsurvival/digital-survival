@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI="6"
 
-inherit eutils cmake-utils
+inherit autotools
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -20,25 +20,41 @@ HOMEPAGE="https://wimlib.net/"
 LICENSE="GPL-3 LGPL-3"
 
 SLOT="0"
-IUSE="+fuse +attr ntfs openssl"
+IUSE="+fuse iso +ntfs openssl"
 
 # Removed dev-util/pkgconfig per repoman
 
-DEPEND="dev-libs/libxml2
-"
+DEPEND="dev-libs/libxml2"
 
 RDEPEND="
-	fuse? ( sys-fs/fuse )
+	fuse? ( sys-fs/fuse sys-apps/attr )
+	iso? ( app-cdr/cdrkit sys-fs/mtools sys-boot/syslinux app-arch/cabextract )
 	ntfs? ( >=sys-fs/ntfs3g-2011.4.12[ntfsprogs] )
-	attr? ( sys-apps/attr )
 	openssl? ( dev-libs/openssl )
 "
 
+pkg_setup() {
+	use fuse && CONFIG_CHECK+=" ~FUSE_FS"
+}
+
+
+
 src_prepare() { # --without-fuse --without-ntfs-3g --without-libcrypto
-	econf \
-		$(use_enable fuse) \
-		$(use_enable ntfs) \
-		$(use_enable openssl)
+	local myconf
+
+	if use ntfs && use openssl ; then
+		myconf="--with-ntfs-3g --with-libcrypto"
+	elif ! use ntfs && use openssl ; then
+		myconf="--without-ntfs-3g --with-libcrypto"
+	elif use ntfs && ! use openssl ; then
+		myconf="--with-ntfs-3g --without-libcrypto"
+	else
+		myconf="--without-ntfs-3g --without-libcrypto"
+	fi
+
+	econf --prefix="${S}" \
+	$(use_with fuse) \
+	"${myconf}"
 }
 
 src_install() {

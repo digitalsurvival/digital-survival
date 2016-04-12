@@ -7,6 +7,7 @@
 	<longdescription lang="en">A suite for manipulating .wim files.</longdescription>
 	<use>
 		<flag name="fuse">Enable image mount support via fuse</flag>
+		<flag name="iso">Include runtime dependancies for ISO manipulation</flag>
 		<flag name="ntfs">Include NTFS support (<pkg>sys-fs/ntfs3g[ntfsprogs]</pkg>)</flag>
 		<flag name="openssl">Enable crypto functions using OpenSSL (<pkg>dev-libs/openssl</pkg>)</flag>
 	</use>
