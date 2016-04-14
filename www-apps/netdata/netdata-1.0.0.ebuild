@@ -33,9 +33,11 @@ pkg_setup() {
 }
 
 src_prepare() {
+	eapply_user
 	eautoreconf
 }
 
 src_configure() {
-	econf --prefix="${D}" --sysconfdir="${D}/etc" --localstatedir="${D}/var" $(use_enable zlib) --with-math --with-user=netdata CFLAGS="${CFLAGS}"
+	#econf --prefix="${D}" --sysconfdir="${D}/etc" --localstatedir="${D}/var" $(use_enable zlib) --with-math --with-user=netdata CFLAGS="${CFLAGS}"
+	econf $(use_enable zlib) --with-math --with-user=netdata
 }

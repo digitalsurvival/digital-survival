@@ -23,8 +23,9 @@ IUSE="+fuse iso +ntfs openssl"
 
 # Removed dev-util/pkgconfig per repoman
 
-DEPEND="dev-libs/libxml2
-virtual/pkgconfig
+DEPEND="
+	dev-libs/libxml2
+	virtual/pkgconfig
 "
 
 RDEPEND="
@@ -56,8 +57,8 @@ elif use ntfs && ! use openssl ; then
 else
 	myconf="--without-ntfs-3g --without-libcrypto"
 fi
-eautoconf
-#eautoconf --prefix="${S}" \
+
+eautoconf --prefix="${S}" \
 $(use_with fuse) \
 ${myconf}
 }
