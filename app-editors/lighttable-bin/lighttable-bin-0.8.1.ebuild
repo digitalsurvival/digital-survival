@@ -59,6 +59,6 @@ src_install() {
 	pax-mark -PeMRS /opt/"${P}"/LightTable || die "pax-mark failed!"
 	dodir /usr/bin || die "dodir /usr/bin failed"
 	dosym /opt/"${P}"/LightTable /usr/bin/"${PN}" || die "dosym failed!"
-	x86?   ( dosym )
-	amd64?   ( 
+	#x86?   ( dosym )
+	#amd64?   ( )
 }
