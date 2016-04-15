@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}"
 
 src_compile() {
 if use experimental; then
-	emake PREFIX="${D}usr" all experimenal
+	emake PREFIX="${D}usr" all experimental
 else
 	emake PREFIX="${D}usr" all
 fi
