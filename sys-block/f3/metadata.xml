@@ -7,11 +7,11 @@
 		</email>
 	</maintainer>
 	<longdescription>
-		A web-based real-time performance monitoring app
+		Fight Flash Fraud, a cross platform H2testw clone.
 	</longdescription>
 	<use>
-		<flag name="zlib">
-				Enables compressed streams (saves a lot of bandwidth).
+		<flag name="experimental">
+			Builds f3brew,f3fix, and f3probe applications
 		</flag>
 	</use>
 </pkgmetadata>
