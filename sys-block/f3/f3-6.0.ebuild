@@ -28,12 +28,12 @@ RDEPEND="${DEPEND}"
 
 src_compile() {
 if use experimental; then
-	emake PREFIX="${D}usr" all experimental
+	emake all experimental
 else
-	emake PREFIX="${D}usr" all
+	emake all
 fi
 }
 
 src_install() {
-emake PREFIX="${D}usr" install
+emake PREFIX="${ED}usr" install
 }
