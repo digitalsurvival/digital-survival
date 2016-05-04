@@ -1,0 +1,10 @@
+--- src.orig/label_file.c	2009-07-31 02:14:16.000000000 +0000
++++ src/label_file.c	2011-06-09 22:23:07.790689224 +0000
+@@ -17,6 +17,7 @@
+ #include <errno.h>
+ #include <limits.h>
+ #include <regex.h>
++#include <sys/stat.h> 
+ #include "callbacks.h"
+ #include "label_internal.h"
+ 

@@ -1,0 +1,36 @@
+--- util.orig/grub.d/10_linux.in	2011-05-14 20:36:49.000000000 +0000
++++ util/grub.d/10_linux.in	2011-07-11 18:11:19.413850269 +0000
+@@ -75,33 +75,6 @@
+       save_default_entry | sed -e "s/^/\t/"
+   fi
+ 
+-  # Use ELILO's generic "efifb" when it's known to be available.
+-  # FIXME: We need an interface to select vesafb in case efifb can't be used.
+-  if [ "x$GRUB_GFXPAYLOAD_LINUX" = x ]; then
+-      cat << EOF
+-	load_video
+-EOF
+-      if grep -qx "CONFIG_FB_EFI=y" "${config}" 2> /dev/null \
+-	  && grep -qx "CONFIG_VT_HW_CONSOLE_BINDING=y" "${config}" 2> /dev/null; then
+-	  cat << EOF
+-	set gfxpayload=keep
+-EOF
+-      fi
+-  else
+-      if [ "x$GRUB_GFXPAYLOAD_LINUX" != xtext ]; then
+-	  cat << EOF
+-	load_video
+-EOF
+-      fi
+-	  cat << EOF
+-	set gfxpayload=$GRUB_GFXPAYLOAD_LINUX
+-EOF
+-  fi
+-
+-  cat << EOF
+-	insmod gzio
+-EOF
+-
+   if [ x$dirname = x/ ]; then
+     if [ -z "${prepare_root_cache}" ]; then
+       prepare_root_cache="$(prepare_grub_to_access_device ${GRUB_DEVICE} | sed -e "s/^/\t/")"

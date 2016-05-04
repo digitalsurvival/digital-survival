@@ -1,0 +1,11 @@
+--- Makefile.orig	2011-06-10 14:18:15.000000000 +0000
++++ Makefile	2011-06-10 14:20:22.315642625 +0000
+@@ -5,7 +5,7 @@
+ DEBUGLIB := "/usr/lib/debug"
+ CC := gcc
+ PYVER := $(shell python -c "import sys; print sys.version[0:3]")
+-CFLAGS := -g -I/usr/include/python$(PYVER) -Wall -Werror -fPIC $(OPTFLAGS) -fno-strict-aliasing
++CFLAGS := -g -I/usr/include/python$(PYVER) -Wall -fPIC $(OPTFLAGS) -fno-strict-aliasing
+ LDFLAGS := -shared
+ 
+ VERSION := $(shell awk '/Version:/ { print $$2 }' python-pyblock.spec)

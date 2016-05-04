@@ -1,0 +1,20 @@
+--- a/docs/Makefile.am	2011-01-14 14:30:27.000000000 +0000
++++ b/docs/Makefile.am	2011-07-07 01:37:45.000000000 +0000
+@@ -6,16 +6,10 @@
+ 	sgml/libuser-2.html sgml/libuser.txt
+ EXTRA_DIST = attributes.txt libuser.conf.5.in rfc2307.txt sgml/libuser.sgml
+ 
+-all: sgml/libuser.txt sgml/libuser.html
++all: 
+ 
+ libuser.conf.5: $(srcdir)/libuser.conf.5.in Makefile
+ 	sed 's,@sysconfdir\@,$(sysconfdir),g' \
+ 		< $(srcdir)/libuser.conf.5.in > $@
+ 
+-sgml/libuser.txt: $(srcdir)/sgml/libuser.sgml
+-	[ -d sgml ] || mkdir sgml
+-	cd sgml; sgml2txt ../$(srcdir)/sgml/libuser.sgml
+ 
+-sgml/libuser.html: $(srcdir)/sgml/libuser.sgml
+-	[ -d sgml ] || mkdir sgml
+-	cd sgml; sgml2html ../$(srcdir)/sgml/libuser.sgml

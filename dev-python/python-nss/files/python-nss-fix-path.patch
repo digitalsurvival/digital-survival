@@ -1,0 +1,49 @@
+--- python-nss-0.11.orig/setup.py	2011-02-21 17:12:14.000000000 +0000
++++ python-nss-0.11/setup.py	2011-06-13 12:45:43.943609000 +0000
+@@ -310,37 +310,41 @@ extra_compile_args = []
+ nss_error_extension = \
+     Extension('nss.error',
+               sources            = ['src/py_nspr_error.c'],
+-              include_dirs       = ['/usr/include/nss3', '/usr/include/nspr4'],
++              include_dirs       = ['/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h'],
+               libraries          = ['nspr4'],
++              library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
+               extra_compile_args = extra_compile_args,
+               )
+ 
+ nss_io_extension = \
+     Extension('nss.io',
+               sources            = ['src/py_nspr_io.c'],
+-              include_dirs       = ['/usr/include/nss3', '/usr/include/nspr4'],
++              include_dirs       = ['/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h', 'src/py_nspr_io.h'],
+               libraries          = ['nspr4'],
++	       library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
+               extra_compile_args = extra_compile_args,
+               )
+ 
+ nss_nss_extension = \
+     Extension('nss.nss',
+               sources            = ['src/py_nss.c'],
+-              include_dirs       = ['src', '/usr/include/nss3', '/usr/include/nspr4'],
++              include_dirs       = ['src', '/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h', 'src/py_nss.h'],
+               libraries          = ['nspr4', 'ssl3', 'nss3'],
++	       library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
+               extra_compile_args = extra_compile_args,
+               )
+ 
+ nss_ssl_extension = \
+     Extension('nss.ssl',
+               sources            = ['src/py_ssl.c'],
+-              include_dirs       = ['src', '/usr/include/nss3', '/usr/include/nspr4'],
++              include_dirs       = ['src', '/usr/include/nss', '/usr/include/nspr'],
+               depends            = ['src/py_nspr_common.h', 'src/py_nspr_error.h', 'src/py_nspr_io.h',
+                                     'src/py_ssl.h', 'src/py_nss.h'],
+               libraries          = ['nspr4', 'ssl3'],
++	       library_dirs       = ['/usr/lib/nspr', '/usr/lib/nss'],
+               extra_compile_args = extra_compile_args,
+               )
+ 
+
