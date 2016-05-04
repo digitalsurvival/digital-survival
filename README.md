@@ -1,4 +1,4 @@
-# The Digital Survival Repository
+# The Digital Survival Overlay
 
 ### app-misc/nixnote ###
 
@@ -25,3 +25,17 @@ ln -s <path to overlay>/Documentation/package.keywords/obs-studio-live /etc/port
 The Perfect Paper Passwords Pluggable Authentication Module is a PAM module that enables two step verification using one time passwords.
 
 See the [source code repository](https://github.com/DigitalSurvival/ppp-pam#introduction) for additional information.
+
+### Anaconda overlay packages ###
+
+All works in progress.
+
+### A bunch of modern text editors ###
+
+* app-misc/atom
+* app-misc/brackets
+* app-misc/lighttable
+* app-misc/lighttable-bin
+* app-misc/vscode
+
+All works in progress. Help appreciated.
