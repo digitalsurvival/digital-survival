@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>maffblaster@gentoo.org</email>
+	</maintainer>
+	<longdescription>A fork of libqtelegram that uses qmake</longdescription>
+	<use>
+		<!-- <flag name="kde">Enable KDE desktop notifications</flag> -->
+	</use>
+</pkgmetadata>

@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI="6"
 
-EGIT_REPO_URI="git://git.fedorahosted.org/python-meh.git"
+EGIT_REPO_URI="https://github.com/rhinstaller/python-meh.git"
 EGIT_COMMIT="r${PV}-1"
 inherit distutils git eutils
 
 DESCRIPTION="Python exception handling library"
-HOMEPAGE="http://git.fedoraproject.org/git/python-meh.git?p=python-meh.git;a=summary"
+HOMEPAGE="https://github.com/rhinstaller/python-meh"
 SRC_URI=""
 
 LICENSE="GPL-2"
