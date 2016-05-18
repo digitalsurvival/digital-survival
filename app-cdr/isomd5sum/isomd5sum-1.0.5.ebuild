@@ -1,8 +1,8 @@
-# Copyright 2004-2009 Sabayon Linux
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $Id$
 
-EAPI="2"
+EAPI="6"
 inherit base
 
 DESCRIPTION="isomd5sum provides a way of making use of the ISO9660 application data area to store md5sum data about the iso"

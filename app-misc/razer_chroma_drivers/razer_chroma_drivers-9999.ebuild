@@ -27,8 +27,11 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-DEPEND="
+DEPEND="media-libs/libsdl2
+sci-libs/fftw:3.0
+app-misc/jq
+
 "
 
-RDEPEND="
+RDEPEND="${DEPEND}
 "
