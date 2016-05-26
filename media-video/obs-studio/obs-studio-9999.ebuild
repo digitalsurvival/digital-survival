@@ -2,19 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit eutils cmake-utils
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/jp9000/obs-studio.git
-		git://github.com/jp9000/obs-studio.git"
+	EGIT_REPO_URI="https://github.com/jp9000/${PN}.git
+		git://github.com/jp9000/${PN}.git"
 else
-	inherit vcs-snapshot
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/jp9000/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
 fi
 
 DESCRIPTION="Software for recording and streaming live video content"
