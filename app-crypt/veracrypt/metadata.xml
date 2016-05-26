@@ -5,9 +5,9 @@
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		A free disk encryption software based on TrueCrypt
 	</longdescription>
 	<use>
-		<!-- TODO -->
+	 <!-- TODO -->
 	</use>
 </pkgmetadata>

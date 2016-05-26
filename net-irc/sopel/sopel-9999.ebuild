@@ -3,33 +3,36 @@
 # $Id$
 
 EAPI=5
-inherit eutils
 
-if [[ ${PV} == 9999 ]]; then
+PYTHON_COMPAT=( python2_7 python3_{3,4,5} )
+
+inherit python-r1
+
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/sopel-irc/sopel.git
-		git://github.com/sopel-irc/sopel.git"
+	EGIT_REPO_URI="https://github.com/sopel-irc/${PN}.git
+		git://github.com/sopel-irc/${PN}.git"
 else
-	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/sopel-irc/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
 fi
 
-DESCRIPTION="An open source IRC bot written in Python."
+KEYWORDS="~x86 ~amd64"
+DESCRIPTION="The Python IRC bot"
 HOMEPAGE="http://sopel.chat/"
 LICENSE="EFL-2"
 
 SLOT="0"
 IUSE=""
 
-DEPEND="dev-python/xmltodict
+DEPEND=""
+
+RDEPEND="${DEPEND}
+dev-python/xmltodict
 dev-python/pytz
 dev-python/praw
 dev-python/pyenchant
 dev-python/pygeoip
-"
-
-RDEPEND="${DEPEND}"
+dev-python/requests"
 
 pkg_postinst() {
 	elog "Thanks for installing Sopel! :)"

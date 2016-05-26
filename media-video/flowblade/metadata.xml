@@ -5,9 +5,9 @@
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		A multitrack non-linear video editor
 	</longdescription>
 	<use>
-		<!-- TODO -->
+	 <!-- TODO -->
 	</use>
 </pkgmetadata>
