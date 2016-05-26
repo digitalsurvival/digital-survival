@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>maffblaster@gentoo.org</email>
+	</maintainer>
+	<longdescription>
+		Socioboard's Instagram marketing, management, and analytics software
+	</longdescription>
+	<use>
+		<!-- TODO -->
+	</use>
+</pkgmetadata>
