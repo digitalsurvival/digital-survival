@@ -1,5 +1,7 @@
 # The Digital Survival Overlay
 
+[![Join the chat at https://gitter.im/digitalsurvival/digital-survival-overlay](https://badges.gitter.im/digitalsurvival/digital-survival-overlay.svg)](https://gitter.im/digitalsurvival/digital-survival-overlay?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ### app-misc/nixnote ###
 
 An open source Evernote clone for Linux. I will be working on releasing *both* versions in the Portage tree.
