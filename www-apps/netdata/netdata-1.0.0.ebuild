@@ -6,13 +6,12 @@ EAPI=6
 
 inherit autotools user
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/firehol/${PN}.git
 		git://github.com/firehol/${PN}.git"
 else
 	SRC_URI="https://github.com/firehol/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
 fi
 
 DESCRIPTION="A web-based real-time performance monitoring app"

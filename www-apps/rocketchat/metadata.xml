@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+	<email>maffblaster@gentoo.org</email>
+</maintainer>
+<longdescription>A Slack like open source chat server</longdescription>
+<use>
+ <!-- TODO -->
+</use>
+</pkgmetadata>

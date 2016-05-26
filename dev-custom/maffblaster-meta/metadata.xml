@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>maffblaster@gentoo.org</email>
+	</maintainer>
+	<longdescription>Metapackage for maffblaster's recommended applications</longdescription>
+	<use>
+		<flag name="system">Standard tools for Maffblaster's Gentoo systems</flag>
+		<flag name="consulting">Tools for consulting work</flag>
+		<flag name="communication">Developers have to be able to communicate</flag></flag>
+		<flag name="dev">All of Maffblaster's tools of choice</flag>
+		<flag name="backups">Software for regular backups</flag>
+		<flag name="utilities">No Gentoo system would be complete without these tools</flag>
+	</use>
+</pkgmetadata>

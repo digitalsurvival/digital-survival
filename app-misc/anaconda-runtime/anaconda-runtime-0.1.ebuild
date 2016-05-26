@@ -1,8 +1,8 @@
-# Copyright 2004-2010 Sabayon
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $Id$
 
-EAPI="2"
+EAPI="6"
 
 DESCRIPTION="Anaconda Installer runtime meta-package (containing all the runtime dependencies)"
 SRC_URI=""
