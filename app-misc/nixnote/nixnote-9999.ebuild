@@ -10,14 +10,13 @@ MY_PN="${PN}2"
 MY_PV="${PV/_/-}"
 MY_P="${PN}-${MY_PV}"
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/baumgarr/${MY_PN}.git
 		git://github.com/baumgarr/${MY_PN}.git"
 else
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/baumgarr/${MY_PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
 fi
 
 DESCRIPTION="An open source Evernote clone for Linux."

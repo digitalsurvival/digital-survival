@@ -1,28 +1,29 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
+
 EAPI=5
 inherit eutils cmake-utils
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/digitalsurvival/ppp-pam.git
-		git://github.com/digitalsurvival/ppp-pam.git"
+	EGIT_REPO_URI="https://github.com/digitalsurvival/${PN}.git
+		git://github.com/digitalsurvival/${PN}.git"
 else
 	KEYWORDS="~x86 ~amd64"
-	SRC_URI="https://github.com/digitalsurvival/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
+	SRC_URI="https://github.com/digitalsurvival/${PN}/archive/${PV}.tar.gz"
 fi
 
-DESCRIPTION="Two step authentication for SSH using one time passwords."
+DESCRIPTION="Two step authentication for SSH using one time passwords"
 HOMEPAGE="https://github.com/digitalsurvival/ppp-pam"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="test"
 
 DEPEND=""
 
-RDEPEND="${DEPEND}"
+RDEPEND="virtual/pam
+	${DEPEND}
+	"
 
 src_configure() {
 	if [[ -x ${ECONF_SOURCE:-.}/configure ]] ; then

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>maffblaster@gentoo.org</email>
+	<maintainer type="person">
+		<email>
+			maffblaster@gentoo.org
+		</email>
 	</maintainer>
 	<longdescription>
 		A free disk encryption software based on TrueCrypt
 	</longdescription>
 	<use>
-	 <!-- TODO -->
+		<!-- TODO -->
 	</use>
 </pkgmetadata>

@@ -5,14 +5,13 @@
 EAPI=5
 inherit eutils
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/telegramdesktop/${PN}.git
 		git://github.com/telegramdesktop/${PN}.git"
 else
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/telegramdesktop/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	RESTRICT="primaryuri"
 fi
 
 DESCRIPTION="The official Telegram desktop messaging app"
