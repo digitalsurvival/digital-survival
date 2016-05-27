@@ -2,6 +2,8 @@
 
 [![Join the chat at https://gitter.im/digitalsurvival/digital-survival-overlay](https://badges.gitter.im/digitalsurvival/digital-survival-overlay.svg)](https://gitter.im/digitalsurvival/digital-survival-overlay?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+This overlay focuses on secure communciation and encyption techonology, although quite a few text editor ebuilds are lurking in the depths.
+
 ### app-misc/nixnote ###
 
 An open source Evernote clone for Linux. I will be working on releasing *both* versions in the Portage tree.
@@ -30,7 +32,9 @@ See the [source code repository](https://github.com/DigitalSurvival/ppp-pam#intr
 
 ### Anaconda overlay packages ###
 
-All works in progress.
+All works in progress...
+
+<sup><small><small>* The Anaconda related packages are a continuation of [wiktor-b's work](https://gitweb.gentoo.org/proj/anaconda-overlay.git/).</small></small></sup>
 
 ### A bunch of modern text editors ###
 
@@ -40,4 +44,4 @@ All works in progress.
 * app-misc/lighttable-bin
 * app-misc/vscode
 
-All works in progress. Help appreciated.
+Open a pull request. Any help much appreciated!
