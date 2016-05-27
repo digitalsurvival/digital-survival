@@ -1,5 +1,6 @@
 # The Digital Survival Overlay
 
+[![Build Status](https://travis-ci.org/digitalsurvival/digital-survival-overlay.svg?branch=master)](https://travis-ci.org/digitalsurvival/digital-survival-overlay)
 [![Join the chat at https://gitter.im/digitalsurvival/digital-survival-overlay](https://badges.gitter.im/digitalsurvival/digital-survival-overlay.svg)](https://gitter.im/digitalsurvival/digital-survival-overlay?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This overlay focuses on secure communciation and encyption techonology, although quite a few text editor ebuilds are lurking in the depths.
