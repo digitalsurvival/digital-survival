@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer>
-	<email>maffblaster@gentoo.org</email>
-</maintainer>
-<longdescription>Python API for Maxmind's binary GeoIP databases</longdescription>
-<use>
- <!-- TODO -->
-</use>
+	<maintainer type="person">
+		<email>maffblaster@gentoo.org</email>
+	</maintainer>
+	<longdescription>
+		Python API for Maxmind's binary GeoIP databases
+	</longdescription>
+	<use>
+		<!-- TODO -->
+	</use>
 </pkgmetadata>

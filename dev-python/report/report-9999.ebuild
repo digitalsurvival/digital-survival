@@ -1,30 +1,33 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI="2"
+EAPI="6"
 
-EGIT_REPO_URI="git://git.fedorahosted.org/report.git"
-EGIT_COMMIT="${PV}"
-inherit base git autotools eutils
+inherit autotools eutils
+
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.fedorahosted.org/${PN}.git"
+else
+	KEYWORDS="~x86 ~amd64"
+	SRC_URI="https://git.fedorahosted.org/cgit/${PN}.git/snapshot/${P}.tar.xz"
+fi
 
 DESCRIPTION="Provides a single configurable problem/bug/issue reporting API."
-HOMEPAGE="http://git.fedoraproject.org/git/?p=report.git;a=summary"
-SRC_URI=""
+HOMEPAGE="https://git.fedorahosted.org/cgit/report.git/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE=""
 
 DEPEND="app-arch/rpm
 	net-misc/curl"
 RDEPEND="dev-libs/openssl
 	net-misc/curl
-	dev-libs/libxml2"
+	dev-libs/libxml2
+	"
 
 src_prepare() {
-
 	eautoreconf || die "cannot run eautoreconf"
 	autoreconf -i || die "wtf"
 	eautomake || die "cannot run eautomake"
@@ -38,7 +41,6 @@ src_compile() {
 	# workaround crappy build system
 	mkdir -p "${S}/python/report/templates/RHEL-template/bugzillaCopy"
 	touch "${S}/python/report/templates/RHEL-template/bugzillaCopy/VERSION"
-
 	emake || die "make failed"
 }
 
@@ -55,5 +57,4 @@ src_install() {
 	find "${D}"/ -name "bugzilla-template" -type d | xargs rm -rf
 	find "${D}"/ -name "RHEL-template" -type d | xargs rm -rf
 	find "${D}"/ -name "strata-template" -type d | xargs rm -rf
-
 }

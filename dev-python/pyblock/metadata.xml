@@ -2,12 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		A Python API documentation generator that works by static analysis
+		Python interface for working with block devices
 	</longdescription>
 	<use>
 		<!-- TODO -->
