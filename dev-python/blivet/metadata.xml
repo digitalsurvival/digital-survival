@@ -7,7 +7,7 @@
 		</email>
 	</maintainer>
 	<longdescription>
-		An extensible mail client built with web technology
+		A Python module for configuration of block devices
 	</longdescription>
 	<use>
 		<!-- TODO -->

@@ -2,12 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		An extensible mail client built with web technology
+		A library for manipulating block devices
 	</longdescription>
 	<use>
 		<!-- TODO -->

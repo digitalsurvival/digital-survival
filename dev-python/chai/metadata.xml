@@ -7,7 +7,7 @@
 		</email>
 	</maintainer>
 	<longdescription>
-		An extensible mail client built with web technology
+		Mocking framework for Python
 	</longdescription>
 	<use>
 		<!-- TODO -->

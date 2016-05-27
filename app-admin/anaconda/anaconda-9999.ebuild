@@ -4,18 +4,29 @@
 
 EAPI="6"
 
-inherit flag-o-matic base libtool autotools eutils
+inherit flag-o-matic libtool autotools eutils
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://git.fedorahosted.org/git/${PN}.git"
+	EGIT_REPO_URI="https://github.com/rhinstaller/${PN}.git"
 else
-	inherit versionator
-	MY_PV="$(replace_version_separator 2 '-' ${PV})"
-	MY_P="${PN}-${MY_PV}"
 	KEYWORDS="~x86 ~amd64"
-	SRC_URI="https://git.fedorahosted.org/cgit/${PN}.git/snapshot/${MY_P}.tar.gz -> ${P}.tar.gz"
+	
+	inherit versionator
+	MY_MAJORV="$(get_major_version)"
+	if [[ "${MY_MAJORV}" -gt "21" ]]; then
+		MY_PV="$(replace_version_separator 2 '-' ${PV})"
+		MY_P="${PN}-${MY_PV}"
+	else
+		MY_PV="$(replace_version_separator 4 '-' ${PV})"
+		MY_P="${PN}-${MY_PV}"
+	fi
+	SRC_URI="https://github.com/rhinstaller/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
 fi
+
+DESCRIPTION="A Python-based graphical Linux installer"
+HOMEPAGE="https://github.com/rhinstaller/anaconda
+	https://rhinstaller.github.io/anaconda/"
 
 AUDIT_VER="1.7.9"
 AUDIT_SRC_URI="http://people.redhat.com/sgrubb/audit/audit-${AUDIT_VER}.tar.gz"
@@ -24,16 +35,13 @@ SEPOL_VER="2.0"
 LSELINUX_VER="2.0.85"
 LSELINUX_SRC_URI="http://userspace.selinuxproject.org/releases/current/devel/libselinux-${LSELINUX_VER}.tar.gz"
 
-DESCRIPTION="RedHat's graphical Linux installer"
-HOMEPAGE="https://git.overlays.gentoo.org/gitweb/?p=proj/anaconda.git;a=summary"
-
-if [ "${PV}" = "9999" ]; then
-	SRC_URI="${AUDIT_SRC_URI} ${LSELINUX_SRC_URI}"
-	KEYWORDS=""
-else
-	SRC_URI="http://distfiles.sabayon.org/${CATEGORY}/${PN}-${PVR}.tar.bz2 ${AUDIT_SRC_URI} ${LSELINUX_SRC_URI}"
-	KEYWORDS="~amd64 ~x86"
-fi
+#~ if [ "${PV}" = "9999" ]; then
+	#~ SRC_URI="${AUDIT_SRC_URI} ${LSELINUX_SRC_URI}"
+	#~ KEYWORDS=""
+#~ else
+	#~ SRC_URI="http://distfiles.sabayon.org/${CATEGORY}/${PN}-${PVR}.tar.bz2 ${AUDIT_SRC_URI} ${LSELINUX_SRC_URI}"
+	#~ KEYWORDS="~amd64 ~x86"
+#~ fi
 
 S="${WORKDIR}"/${PN}-${PVR}
 AUDIT_S="${WORKDIR}/audit-${AUDIT_VER}"
@@ -60,15 +68,6 @@ RDEPEND="${COMMON_DEPEND} ${AUDIT_RDEPEND}
 	${LSELINUX_RDEPEND} ${LSELINUX_CONFLICT}
 	app-misc/anaconda-runtime
 	app-misc/anaconda-runtime-gui"
-
-src_unpack() {
-	if [ "${PV}" = "9999" ]; then
-		git_src_unpack
-		base_src_unpack
-	else
-		base_src_unpack
-	fi
-}
 
 src_prepare() {
 

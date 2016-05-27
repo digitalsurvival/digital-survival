@@ -8,19 +8,23 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1
 
-MY_PN="pocket-lint"
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/rhinstaller/${PN}.git"
+else
+	KEYWORDS="~x86 ~amd64"
+	SRC_URI="https://github.com/rhinstaller/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+fi
 
-SRC_URI="https://launchpad.net/pocket-lint/trunk/${PV}/+download/${P}.tar.gz"
 DESCRIPTION="A composite linter and style checker for Python"
-HOMEPAGE="https://launchpad.net/pocket-lint"
+HOMEPAGE="https://github.com/rhinstaller/pocketlint"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE=""
 
-RDEPEND=">=dev-python/pyflakes-0.5"
+RDEPEND="dev-python/pylint"
 
-S="${WORKDIR}/${MY_P}"
+#S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	local use_selinux=0

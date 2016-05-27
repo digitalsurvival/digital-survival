@@ -7,7 +7,7 @@
 		</email>
 	</maintainer>
 	<longdescription>
-		An extensible mail client built with web technology
+		A Python module for parsing and writing kickstart config files
 	</longdescription>
 	<use>
 		<!-- TODO -->
