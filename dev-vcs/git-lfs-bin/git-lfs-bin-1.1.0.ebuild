@@ -3,7 +3,6 @@
 # $Id$
 
 EAPI=5
-inherit vcs-snapshot
 inherit golang-build
 
 MY_PN="${PN/-bin}"
@@ -11,7 +10,7 @@ MY_PN="${PN/-bin}"
 KEYWORDS="~amd64"
 SRC_URI="https://github.com/github/${MY_PN}/releases/download/v${PV}/${MY_PN}-linux-amd64-${PV}.tar.gz -> ${P}.tar.gz"
 
-DESCRIPTION="An open source large file storage plugin for git (binary package)"
+DESCRIPTION="GitHub's large file storage plugin for git (binary package)"
 HOMEPAGE="https://git-lfs.github.com/"
 LICENSE="MIT"
 

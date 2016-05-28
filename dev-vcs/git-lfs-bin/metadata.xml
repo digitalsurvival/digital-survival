@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer>
-	<email>maffblaster@gentoo.org</email>
-</maintainer>
-<longdescription>An open source large file storage plugin for git (binary package)</longdescription>
-<use>
- <!-- TODO -->
-</use>
+	<maintainer>
+		<email>
+			maffblaster@gentoo.org
+		</email>
+	</maintainer>
+	<longdescription>
+		GitHub's large file storage plugin for git (binary package)
+	</longdescription>
+	<use>
+		<!-- TODO -->
+	</use>
 </pkgmetadata>
