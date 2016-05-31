@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 python3_{3,4,5} )
 
@@ -13,10 +13,10 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/sopel-irc/${PN}.git
 		git://github.com/sopel-irc/${PN}.git"
 else
+	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/sopel-irc/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-KEYWORDS="~x86 ~amd64"
 DESCRIPTION="The Python IRC bot"
 HOMEPAGE="http://sopel.chat/"
 LICENSE="EFL-2"

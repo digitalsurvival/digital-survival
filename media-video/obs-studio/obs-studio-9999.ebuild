@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI=5
 
 inherit eutils cmake-utils
 
@@ -22,7 +22,8 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="fdk imagemagick +pulseaudio +qt5 truetype v4l"
 
-DEPEND=">=dev-libs/jansson-2.5
+DEPEND=">=dev-util/cmake-2.8.12.2
+	>=dev-libs/jansson-2.5
 	media-libs/x264
 	media-video/ffmpeg
 	x11-libs/libXinerama
