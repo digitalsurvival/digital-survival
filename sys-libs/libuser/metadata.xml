@@ -2,14 +2,13 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<email>maffblaster@gentoo.org</email>
+		<name>Matthew Marchese</name>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		An interface for manipulating and administering user and group accounts
 	</longdescription>
 	<use>
-		<!-- TODO -->
+		 <flag name="popt">Use dev-libs/popt as the command-line parser.</flag>
 	</use>
 </pkgmetadata>

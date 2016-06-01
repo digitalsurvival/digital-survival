@@ -1,16 +1,25 @@
-# Copyright 2004-2010 Sabayon
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $Id$
 
-EAPI="2"
-inherit python base
+EAPI="6"
 
-DESCRIPTION="The system-config-users tool lets you manage the users and groups on your computer."
-HOMEPAGE="http://fedoraproject.org/wiki/SystemConfig/users"
-SRC_URI="https://fedorahosted.org/released/${PN}/${P}.tar.bz2"
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.fedorahosted.org/git/${PN}.git"
+else
+	KEYWORDS="~x86 ~amd64"
+	inherit versionator
+	MY_PV="$(replace_all_version_separators '_')"
+	MY_P="${PN}-${MY_PV}"
+	# If the first download fails, then S must be adjusted with MY_P
+	SRC_URI="https://fedorahosted.org/released/${PN}/${P}.tar.bz2 https://git.fedorahosted.org/cgit/${PN}.git/snapshot/${MY_P}.tar.xz"
+fi
 
-LICENSE="GPL-1"
-KEYWORDS="amd64 x86"
+DESCRIPTION="Fedora's system-config-users tool"
+HOMEPAGE="http://fedoraproject.org/wiki/SystemConfig/users https://git.fedorahosted.org/git/system-config-users.git"
+LICENSE="GPL-2"
+
 SLOT="0"
 IUSE="X"
 
@@ -30,9 +39,11 @@ RDEPEND="
 
 PATCHES=( "${FILESDIR}/${PN}-kill-rpm.patch" )
 
-pkg_postrm() {
-        python_mod_cleanup /usr/share/${PN}
-}
+S="${WORKDIR}/${MY_P}"
+
+#~ pkg_postrm() {
+	#~ python_mod_cleanup /usr/share/${PN}
+#~ }
 
 # FIXME: this package should depend against sys-apps/usermode
 # which has been removed from Portage in May, 2009.

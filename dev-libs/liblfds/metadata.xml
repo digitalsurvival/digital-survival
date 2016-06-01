@@ -2,12 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		A portable, license-free, lock-free data structure library written in C
 	</longdescription>
 	<use>
 		<!-- TODO -->

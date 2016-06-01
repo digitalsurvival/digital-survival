@@ -7,7 +7,7 @@
 		</email>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		A Fedora keyboard management tool
 	</longdescription>
 	<use>
 		<!-- TODO -->

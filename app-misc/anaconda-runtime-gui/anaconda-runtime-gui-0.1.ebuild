@@ -1,10 +1,11 @@
-# Copyright 2004-2010 Sabayon
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $Id$
 
-EAPI="2"
+EAPI="6"
 
-DESCRIPTION="Anaconda Installer GUI runtime meta-package"
+DESCRIPTION="Anaconda GUI meta-package"
+HOMEPAGE="https://github.com/rhinstaller/anaconda https://rhinstaller.github.io/anaconda/"
 SRC_URI=""
 
 LICENSE="GPL-2"

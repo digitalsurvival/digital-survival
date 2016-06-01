@@ -7,7 +7,7 @@
 		</email>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		Fedora's system-config-date tool
 	</longdescription>
 	<use>
 		<!-- TODO -->

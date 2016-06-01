@@ -2,12 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		Dynamic kernel patching for the Linux kernel
+		Anaconda GUI meta-package
 	</longdescription>
 	<use>
 		<!-- TODO -->

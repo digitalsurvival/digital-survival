@@ -4,9 +4,9 @@
 
 EAPI="6"
 
-DESCRIPTION="Anaconda Installer runtime meta-package (containing all the runtime dependencies)"
+DESCRIPTION="Anaconda runtime meta-package"
 SRC_URI=""
-
+HOMEPAGE="https://github.com/rhinstaller/anaconda https://rhinstaller.github.io/anaconda/"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"

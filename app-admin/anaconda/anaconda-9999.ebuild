@@ -11,7 +11,6 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/rhinstaller/${PN}.git"
 else
 	KEYWORDS="~x86 ~amd64"
-	
 	inherit versionator
 	MY_MAJORV="$(get_major_version)"
 	if [[ "${MY_MAJORV}" -gt "21" ]]; then
@@ -62,7 +61,7 @@ COMMON_DEPEND="app-admin/system-config-keyboard
 	dev-libs/newt
 	nfs? ( net-fs/nfs-utils )
 	sys-fs/lvm2
-	=sys-block/open-iscsi-2.0.872"
+	~sys-block/open-iscsi-2.0.872"
 DEPEND="${COMMON_DEPEND} ${AUDIT_DEPEND} ${LSELINUX_DEPEND} sys-apps/sed"
 RDEPEND="${COMMON_DEPEND} ${AUDIT_RDEPEND}
 	${LSELINUX_RDEPEND} ${LSELINUX_CONFLICT}
