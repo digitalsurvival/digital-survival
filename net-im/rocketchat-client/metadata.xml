@@ -5,7 +5,7 @@
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		The official Telegram desktop messaging app
+		Linux desktop client for RocketChat
 	</longdescription>
 	<use>
 		<!-- TODO -->
