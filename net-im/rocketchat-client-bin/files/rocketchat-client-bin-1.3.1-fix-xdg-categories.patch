@@ -1,0 +1,8 @@
+--- usr/share/applications/rocketchat.desktop
++++ usr/share/applications/rocketchat.desktop
+@@ -8,4 +8,4 @@
+ Path=/opt/rocketchat/
+ Icon=/opt/rocketchat/icon.png
+ Terminal=false
+-Categories=Application;
++Categories=Network;InstantMessaging;Chat;

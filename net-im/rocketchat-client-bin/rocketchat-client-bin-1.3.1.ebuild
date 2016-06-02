@@ -33,9 +33,9 @@ RDEPEND="
 	>=dev-qt/qtdeclarative-5.5.1-r1:5
 	dev-libs/openssl:0
 	notify? (
-			dev-libs/libappindicator:2
-			x11-libs/gtk+:2
-			)
+		dev-libs/libappindicator:2
+		x11-libs/gtk+:2
+		)
 	"
 # Quiets Portage's QA output
 QA_PREBUILT="opt/rocketchat/*"
@@ -44,6 +44,11 @@ S="${WORKDIR}"
 
 src_unpack() {
 	unpack_deb ${A}
+}
+
+src_prepare() {
+	epatch "${FILESDIR}/${P}-fix-xdg-categories.patch"
+	eapply_user
 }
 
 src_install() {
@@ -56,7 +61,7 @@ src_install() {
 
 	insinto /usr/share/applications
 	doins usr/share/applications/*
-	
+
 	fperms 755 "${IMAGE_DIR}/${MY_PN}"
 	make_wrapper "${MY_PN}" "${IMAGE_DIR}/${MY_PN}"
 }
