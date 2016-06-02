@@ -2,16 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI="6"
 
-# Cleanly make necessary adjustments for SRC_URI
-#MY_PV="${PV/_/-}"
-#MY_PN="LightTable"
+inherit unpacker
 
-DESCRIPTION="GitHub's hackable text editor."
+MY_PN="atom"
+
+DESCRIPTION="GitHub's hackable text editor (binary)"
 HOMEPAGE="https://atom.io/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-
+SRC_URI="https://github.com/${MY_PN}/${MY_PN}/releases/download/v${PV}/${MY_PN}-amd64.deb -> ${P}.deb"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -27,4 +26,22 @@ gnome-base/libgnome-keyring
 dev-vcs/git
 "
 
-S="${WORKDIR}/${MY_PN}-${PV}"
+S="${WORKDIR}/"
+
+src_unpack() {
+	unpack_deb ${A}
+}
+#~ src_install() {
+	#~ local IMAGE_DIR="/opt/${PN}"
+	#~ local WORK_DIR="opt/${PN}"
+
+	#~ pax-mark m "${WORK_DIR}/${MY_PN}" || die "Cannot pax-mark rocketchat binary"
+	#~ insinto "${IMAGE_DIR}"
+	#~ doins -r "${WORK_DIR}"/*
+
+	#~ insinto /usr/share/applications
+	#~ doins usr/share/applications/*
+
+	#~ fperms 755 "${IMAGE_DIR}/${MY_PN}"
+	#~ make_wrapper "${MY_PN}" "${IMAGE_DIR}/${MY_PN}"
+#~ }
