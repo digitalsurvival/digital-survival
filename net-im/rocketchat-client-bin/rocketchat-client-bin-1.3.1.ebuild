@@ -43,7 +43,7 @@ QA_PREBUILT="opt/rocketchat/*"
 S="${WORKDIR}"
 
 src_unpack() {
-	unpack_deb ${A}
+	unpack_deb "${A}"
 }
 
 src_prepare() {
@@ -63,5 +63,5 @@ src_install() {
 	doins usr/share/applications/*
 
 	fperms 755 "${IMAGE_DIR}/${MY_PN}"
-	make_wrapper "${MY_PN}" "${IMAGE_DIR}/${MY_PN}"
+	make_wrapper "${PN}" "${IMAGE_DIR}/${MY_PN}"
 }
