@@ -5,7 +5,7 @@
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		An open source DemonSaw clone
+		Encrypted networking for regular people
 	</longdescription>
 	<use>
 		<!-- TODO -->
