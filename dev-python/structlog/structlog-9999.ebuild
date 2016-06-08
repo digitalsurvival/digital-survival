@@ -11,6 +11,7 @@ inherit distutils-r1
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/hynek/${PN}.git"
+	KEYWORDS=""
 else
 	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/hynek/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -25,7 +26,7 @@ SLOT="0"
 IUSE="test doc extras"
 
 DEPEND="dev-python/six[${PYTHON_USEDEP}]
-	tests? ( dev-python/coverage[${PYTHON_USEDEP}]
+	test? ( dev-python/coverage[${PYTHON_USEDEP}]
 	>=dev-python/freezegun-0.2.8[${PYTHON_USEDEP}]
 	dev-python/pretend[${PYTHON_USEDEP}]
 	dev-python/pytest[${PYTHON_USEDEP}]

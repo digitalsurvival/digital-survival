@@ -30,7 +30,6 @@ RDEPEND="
 		sys-fs/reiserfsprogs
 		sys-fs/squashfs-tools
 		sys-fs/sshfs
-		
 	)
 	utilities? (
 		app-admin/superadduser
