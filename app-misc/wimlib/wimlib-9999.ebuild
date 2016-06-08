@@ -4,27 +4,23 @@
 
 EAPI="6"
 
-inherit autotools
+inherit autotools linux-info
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://wimlib.net/"${PN}""
 else
-	SRC_URI="https://wimlib.net/downloads/"${P}".tar.gz -> "${P}".tar.gz"
-	RESTRICT="primaryuri"
+	SRC_URI="https://wimlib.net/downloads/${P}.tar.gz -> ${P}.tar.gz"
 fi
 
-DESCRIPTION="A suite for manipulating .wim files"
+DESCRIPTION="A suite for manipulating WIM files"
 HOMEPAGE="https://wimlib.net/"
 LICENSE="GPL-3 LGPL-3"
 KEYWORDS="~x86 ~amd64"
 SLOT="0"
-IUSE="+fuse iso +ntfs openssl"
+IUSE="+fuse iso +ntfs openssl kernel_linux"
 
-# Removed dev-util/pkgconfig per repoman
-
-DEPEND="
-	dev-libs/libxml2
+DEPEND="dev-libs/libxml2
 	virtual/pkgconfig
 "
 
@@ -36,7 +32,10 @@ RDEPEND="
 "
 
 pkg_setup() {
-	use fuse && CONFIG_CHECK+=" ~FUSE_FS"
+	if use fuse && use kernel_linux; then
+		CONFIG_CHECK="~FUSE_FS"
+		linux-info_pkg_setup
+	fi
 }
 
 src_prepare() {
@@ -45,22 +44,20 @@ src_prepare() {
 }
 
 src_configure() {
-
-local myconf
-# --without-fuse --without-ntfs-3g --without-libcrypto
-if use ntfs && use openssl ; then
-	myconf="--with-ntfs-3g --with-libcrypto"
-elif ! use ntfs && use openssl ; then
-	myconf="--without-ntfs-3g --with-libcrypto"
-elif use ntfs && ! use openssl ; then
-	myconf="--with-ntfs-3g --without-libcrypto"
-else
-	myconf="--without-ntfs-3g --without-libcrypto"
-fi
-
-eautoconf --prefix="${S}" \
-$(use_with fuse) \
-${myconf}
+	local MY_CONFIG
+	# --without-fuse --without-ntfs-3g --without-libcrypto
+	if use ntfs && use openssl ; then
+		MY_CONFIG="--with-ntfs-3g --with-libcrypto"
+	elif ! use ntfs && use openssl ; then
+		MY_CONFIG="--without-ntfs-3g --with-libcrypto"
+	elif use ntfs && ! use openssl ; then
+		MY_CONFIG="--with-ntfs-3g --without-libcrypto"
+	else
+		MY_CONFIG="--without-ntfs-3g --without-libcrypto"
+	fi
+	# --prefix="${S}"
+	eautoconf $(use_with fuse) \
+	"${MY_CONFIG}"
 }
 
 src_install() {
