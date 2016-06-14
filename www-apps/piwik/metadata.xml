@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>maffblaster@gentoo.org</email>
+	<maintainer>
+		<email>
+			maffblaster@gentoo.org
+		</email>
 	</maintainer>
 	<longdescription>
-		A next generation text editor from Adobe
+		A web-based real-time performance monitoring app
 	</longdescription>
 	<use>
-	<!-- TODO -->
+		<flag name="zlib">
+				Enables compressed streams (saves a lot of bandwidth).
+		</flag>
 	</use>
 </pkgmetadata>

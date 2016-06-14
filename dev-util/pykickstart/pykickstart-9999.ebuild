@@ -11,10 +11,11 @@ inherit distutils-r1
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/rhinstaller/${PN}.git"
+	KEYWORDS=""
 else
 	inherit versionator
 	MY_PV="r$(replace_version_separator 2 '-' )"
-	KEYWORDS="~x86 ~amd64"
+	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/rhinstaller/${PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
 fi
 

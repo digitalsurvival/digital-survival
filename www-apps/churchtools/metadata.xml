@@ -5,9 +5,9 @@
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		A next generation text editor from Adobe
+		A collection of web apps tailored for church
 	</longdescription>
 	<use>
-	<!-- TODO -->
+		<!-- TODO -->
 	</use>
 </pkgmetadata>
