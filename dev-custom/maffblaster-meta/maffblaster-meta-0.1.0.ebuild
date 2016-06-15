@@ -6,20 +6,16 @@ EAPI=6
 
 DESCRIPTION="Metapackage for maffblaster's recommended applications"
 HOMEPAGE="maffblaster.github.io"
-#SRC_URI=""
+SRC_URI=""
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="+system +backups +utilities +dev +communication +consulting"
+KEYWORDS="~amd64"
+IUSE="+sys-fs +app-admin +dev-utils +communication +portage +consulting +backups"
 
 RDEPEND="
-	system? (
+	sys-fs? (
 		sys-fs/btrfs-progs
-		app-admin/sudo
-		app-arch/cpio
-		app-arch/unzip
-		app-arch/zip
 		sys-fs/dosfstools
 		sys-fs/exfat-utils
 		sys-fs/f2fs-tools
@@ -30,17 +26,16 @@ RDEPEND="
 		sys-fs/reiserfsprogs
 		sys-fs/squashfs-tools
 		sys-fs/sshfs
-	)
-	utilities? (
+		)
+	app-admin? (
+		app-admin/sudo
 		app-admin/superadduser
 		app-admin/hddtemp
 		app-backup/snapper
 		app-benchmarks/i7z
 		app-editors/hexedit
 		app-misc/uptimed
-		media-video/vlc
 		net-misc/dhcpcd
-		net-misc/zsync
 		sys-apps/ethtool
 		sys-block/parted
 		sys-fs/ncdu
@@ -50,38 +45,48 @@ RDEPEND="
 		x11-misc/redshift
 		app-arch/dpkg
 	)
-	communication? (
-	www-client/chromium
-	www-client/firefox
-	www-client/links
-	net-irc/weechat
-	media-sound/mumble
-	mail-client/mutt
+	dev-utils? (
+		app-arch/cpio
+		app-arch/unzip
+		app-arch/zip
+		app-editors/vim
+		app-misc/tmux
+		dev-util/pycharm-community
+		dev-util/catalyst
+		dev-vcs/git
+		dev-vcs/cvs
+		dev-vcs/mercurial
+		dev-vcs/subversion
+		dev-vcs/bzr
+		net-misc/zsync
+		media-video/vlc
 	)
-	dev? (
+	communication? (
+		www-client/chromium
+		www-client/firefox
+		www-client/links
+		net-irc/weechat
+		media-sound/mumble
+		mail-client/mutt
+	)
+	portage? (
 		app-portage/elogv
 		app-portage/eix
 		app-portage/portage-utils
-		app-editors/vim
 		app-cdr/cdrtools
 		app-cdr/isomaster
 		app-crypt/efitools
 		app-crypt/gkeys
 		app-crypt/gnupg
 		app-crypt/keybase
-		app-misc/tmux
 		app-office/dia
 		app-portage/gentoolkit
 		app-portage/layman
 		app-text/wgetpaste
 		dev-libs/elfutils
 		dev-util/geany
-		dev-vcs/git
-		dev-vcs/cvs
 		sys-apps/fakeroot
 		sys-apps/mlocate
-		dev-util/pycharm-community
-		dev-util/catalyst
 		dev-util/ccache
 	)
 	consulting? (
