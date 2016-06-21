@@ -24,7 +24,7 @@ RDEPEND="
 		sys-fs/jfsutils
 		sys-fs/ntfs3g
 		sys-fs/reiserfsprogs
-		sys-fs/squashfs-tools
+		sys-fs/squashfs-tools[xattr,xz,lz4,lzma,lzo]
 		sys-fs/sshfs
 		)
 	app-admin? (
@@ -38,6 +38,8 @@ RDEPEND="
 		net-misc/dhcpcd
 		sys-apps/ethtool
 		sys-block/parted
+		sys-block/gparted[btrfs,dmraid,f2fs,fat,hfs,jfs,mdadm,ntfs,reiser4,reiserfs,xfs]
+		app-admin/testdisk[ntfs]
 		sys-fs/ncdu
 		sys-process/atop
 		sys-process/htop
@@ -46,6 +48,8 @@ RDEPEND="
 		app-arch/dpkg
 	)
 	dev-utils? (
+		app-misc/wimlib[openssl,iso]
+		app-text/wgetpaste
 		app-arch/cpio
 		app-arch/unzip
 		app-arch/zip
@@ -59,7 +63,7 @@ RDEPEND="
 		dev-vcs/subversion
 		dev-vcs/bzr
 		net-misc/zsync
-		media-video/vlc
+		media-video/vlc[-qt4,matroska,vpx,x265,opus,bluray,qt5,dvd,ffmpeg,mpeg,mad,wxwindows,aac,dts,a52,ogg,flac,theora,oggvorbis,freetype,bidi,xv,svga,gnutls,stream,vlm,httpd,cdda,vcd,cdio,live,lua]
 	)
 	communication? (
 		www-client/chromium
@@ -67,9 +71,10 @@ RDEPEND="
 		www-client/links
 		net-irc/weechat
 		media-sound/mumble
-		mail-client/mutt
+		mail-client/mutt[imap,smtp,gpg,sasl]
 	)
 	portage? (
+		>=dev-lang/python-3.4.3
 		app-portage/elogv
 		app-portage/eix
 		app-portage/portage-utils
@@ -82,10 +87,10 @@ RDEPEND="
 		app-office/dia
 		app-portage/gentoolkit
 		app-portage/layman
-		app-text/wgetpaste
 		dev-libs/elfutils
 		dev-util/geany
 		sys-apps/fakeroot
+		dev-python/pychroot
 		sys-apps/mlocate
 		dev-util/ccache
 	)
