@@ -2,13 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
-	<longdescription>
-		A free disk encryption software based on TrueCrypt
-	</longdescription>
 	<use>
 		<!-- TODO -->
 	</use>

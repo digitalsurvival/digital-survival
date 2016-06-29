@@ -8,11 +8,12 @@ inherit vcs-snapshot
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/rosvall/${PN}.git"
+	KEYWORDS=""
 else
 	SRC_URI="https://gitlab.com/rosvall/${PN}/repository/archive.tar.gz?ref=v${PV} -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
-KEYWORDS="~x86 ~amd64"
 DESCRIPTION="A command-line password manager supporting AES encryption and 256-bit keys"
 HOMEPAGE="http://www.steelpasswordmanager.org/"
 LICENSE="GPL-3"
@@ -20,9 +21,10 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-DEPEND="app-crypt/mhash
-app-crypt/mcrypt
-dev-db/sqlite:3
+DEPEND="
+	app-crypt/mhash
+	app-crypt/mcrypt
+	dev-db/sqlite:3
 "
 
 RDEPEND="${DEPEND}"

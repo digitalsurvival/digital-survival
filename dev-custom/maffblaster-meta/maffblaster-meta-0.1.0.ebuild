@@ -49,6 +49,7 @@ RDEPEND="
 	)
 	dev-utils? (
 		app-misc/wimlib[openssl,iso]
+		dev-util/meld	
 		app-text/wgetpaste
 		app-arch/cpio
 		app-arch/unzip
