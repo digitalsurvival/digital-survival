@@ -4,7 +4,10 @@
 
 EAPI=6
 
-inherit fonts
+inherit font
+
+MY_PN="FiraCode"
+MY_P="${MY_PN}-${PV}"
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -12,7 +15,7 @@ if [[ "${PV}" == "9999" ]]; then
 		git://github.com/tonsky/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/tonsky/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/tonsky/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -20,12 +23,13 @@ DESCRIPTION="Monospaced font with programming ligatures"
 HOMEPAGE="https://github.com/tonsky/FiraCode"
 LICENSE="OFL-1.1"
 
-IUSE="examples"
+#IUSE="examples"
+
+S="${WORKDIR}/${MY_P}"
 
 SLOT="0"
 DEPEND=""
 RDEPEND=""
-
-src_install() {
-	
-}
+FONT_S="${S}"
+FONT_SUFFIX="otf"
+DOCS="LICENSE README.md"

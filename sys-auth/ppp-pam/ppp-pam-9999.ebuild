@@ -2,16 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 inherit eutils cmake-utils
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/digitalsurvival/${PN}.git
 		git://github.com/digitalsurvival/${PN}.git"
+		KEYWORDS=""
 else
-	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/digitalsurvival/${PN}/archive/${PV}.tar.gz"
+	KEYWORDS="~x86 ~amd64"
 fi
 
 DESCRIPTION="Two step authentication for SSH using one time passwords"
