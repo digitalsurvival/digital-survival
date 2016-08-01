@@ -17,20 +17,6 @@ SLOT="0"
 IUSE="+notify"
 
 RDEPEND="
-	>=dev-qt/qtcore-5.5.1-r1:5
-	>=dev-qt/qtdbus-5.5.1:5
-	>=dev-qt/qtmultimedia-5.5.1-r1:5
-	>=dev-qt/qtgui-5.5.1-r1:5
-	>=dev-qt/qtdbus-5.5.1:5
-	>=dev-qt/qtnetwork-5.5.1:5
-	>=dev-qt/qtprintsupport-5.5.1:5
-	>=dev-qt/qtquick1-5.5.1-r1:5
-	>=dev-qt/qtquickcontrols-5.5.1-r1:5
-	>=dev-qt/qtsql-5.5.1:5
-	>=dev-qt/qtsvg-5.5.1-r1:5
-	>=dev-qt/qtwidgets-5.5.1-r1:5
-	>=dev-qt/qtgraphicaleffects-5.5.1-r1:5
-	>=dev-qt/qtdeclarative-5.5.1-r1:5
 	dev-libs/openssl:0
 	notify? (
 		dev-libs/libappindicator:2
