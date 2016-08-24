@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">
+	RPCS3 is an experimental PS3 emulator. As of Oct '14, it can run three
+	commercial games at 1/8 normal speed. It's marching along quickly, and is 
+	probably the first current-gen emulators that is actually going somewhere.
+	</longdescription>
+</pkgmetadata>

@@ -28,7 +28,7 @@ DEPEND=">=dev-lang/go-1.5.0"
 
 RDEPEND="${DEPEND}"
 
-use test && RESTRICT+=" sandbox"
+#use test && RESTRICT+=" sandbox"
 
 src_prepare() {
         golang-single_src_prepare

@@ -9,7 +9,7 @@ inherit check-reqs eutils
 # The official name of the game is just "UnrealTournament" without any number at the end
 # The ebuild is still named UnrealTournament4 to avoid confusion with games-fps/unreal-tournament (UT99)
 MyPN="UnrealTournament"
-Build_Version="2984440"
+Build_Version="2532759"
 
 DESCRIPTION="Futuristic FPS (Pre-Alpha version)"
 HOMEPAGE="https://unrealtournament.com/"
@@ -24,6 +24,8 @@ IUSE=""
 DEPEND="app-arch/unzip"
 RDEPEND="virtual/opengl"
 
+# Java uses
+#RESTRICT="fetch preserve-libs strip"
 RESTRICT="fetch mirror bindist splitdebug"
 
 S="${WORKDIR}/LinuxNoEditor"
