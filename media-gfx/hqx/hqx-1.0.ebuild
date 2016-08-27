@@ -6,7 +6,7 @@ EAPI=5
 inherit eutils
 DESCRIPTION="hqx is a fast, high-quality magnification filter designed for pixel art"
 HOMEPAGE="https://code.google.com/p/hqx/"
-SRC_URI="https://hqx.googlecode.com/files/${P}.tar.gz"
+SRC_URI="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 
