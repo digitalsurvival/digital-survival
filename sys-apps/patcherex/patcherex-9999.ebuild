@@ -3,7 +3,8 @@
 # $Id$
 
 EAPI=6
-inherit eutils cmake-utils
+
+inherit 
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -12,7 +13,7 @@ if [[ "${PV}" == "9999" ]]; then
 		KEYWORDS=""
 else
 	SRC_URI="https://github.com/shellphish/${PN}/archive/${PV}.tar.gz"
-	KEYWORDS="~x86 ~amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="An automated patching engine"
