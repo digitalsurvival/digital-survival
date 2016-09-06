@@ -10,7 +10,7 @@ MY_PN="${PN}2"
 MY_PV="${PV/_/-}"
 MY_P="${MY_PN}-${MY_PV}"
 
-if [[ ${PV} == 9999 ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/baumgarr/${MY_PN}.git
 		git://github.com/baumgarr/${MY_PN}.git"
@@ -90,8 +90,8 @@ src_configure() {
 
 src_install() {
 	insinto /usr/share/"${MY_PN}"
-	doins -r certs images java qss translations shortcuts.txt *.ini
-	rm -r "${D}"/usr/share/"${MY_PN}"/translations/*.ts
+	doins -r images java qss translations/*.qm shortcuts.txt *.ini
+	#rm -r "${D}"/usr/share/"${MY_PN}"/translations/*.ts
 	dobin "${MY_PN}"
 
 	dodoc -r help copyright changelog.txt license.html README.md README.txt install.txt

@@ -2,12 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription>
-		An extensible mail client built with web technology
+		An extensible mail client built on web technology
 	</longdescription>
 	<use>
 		<!-- TODO -->
