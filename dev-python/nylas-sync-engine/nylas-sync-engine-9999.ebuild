@@ -11,9 +11,10 @@ MY_PN="sync-engine"
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nylas/${MY_PN}.git"
+	KEYWORDS=""
 else
-	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/nylas/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="A Python IMAP/SMTP sync system with modern APIs"

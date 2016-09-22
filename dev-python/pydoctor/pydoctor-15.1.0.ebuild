@@ -20,11 +20,11 @@ IUSE="doc test"
 DEPEND="
 	test? ( dev-python/nose[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
-	)"
-RDEPEND="
 	dev-python/epydoc[${PYTHON_USEDEP}]
 	dev-python/twisted-core[${PYTHON_USEDEP}]
-	"
+	dev-python/twisted-web[${PYTHON_USEDEP}]
+	)"
+RDEPEND=""
 
 python_test() {
 	nosetests || die "Testing failed with ${EPYTHON}"

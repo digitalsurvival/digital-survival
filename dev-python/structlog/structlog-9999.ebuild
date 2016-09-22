@@ -13,8 +13,8 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/hynek/${PN}.git"
 	KEYWORDS=""
 else
-	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/hynek/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Structured Logging for Python"
