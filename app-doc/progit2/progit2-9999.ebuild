@@ -6,6 +6,8 @@ EAPI=6
 
 import fakegem
 
+# https://wiki.gentoo.org/wiki/Project:Ruby/Packaging_RubyGems
+
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/progit/${PN}.git"
