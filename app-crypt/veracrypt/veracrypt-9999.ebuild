@@ -9,7 +9,6 @@ inherit flag-o-matic linux-info multilib toolchain-funcs wxwidgets eutils pax-ut
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/${PN}/${PN}.git"
-	KEYWORDS=""
 else
 	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/${PN}/${PN}/archive/VeraCrypt_${PV}.tar.gz -> ${P}.tar.gz"
