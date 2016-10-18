@@ -9,8 +9,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/vjousse/${PN}-book.git"
 else
 	SRC_URI="https://github.com/vjousse/${PN}-book/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
-	
+	KEYWORDS="~amd64"	
 fi
 
 DESCRIPTION="Vim for humans ebook"
@@ -25,3 +24,5 @@ dev-python/sphinx:0[latex]
 dev-python/pygments:0
 "
 RDEPEND="${DEPEND}"
+
+

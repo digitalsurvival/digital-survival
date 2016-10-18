@@ -8,7 +8,7 @@ inherit eutils cmake-utils bash-completion-r1
 
 DESCRIPTION="Vramsteg adds progress-bar capability to a script/program"
 HOMEPAGE="http://tasktools.org/projects/vramsteg.html"
-SRC_URI="http://taskwarrior.org/download/${P}.tar.gz"
+SRC_URI="http://tasktools.org/download/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

@@ -8,7 +8,7 @@ DESCRIPTION="Find and replace across a filesystem tree"
 HOMEPAGE="http://findandreplace.sourceforge.net/"
 
 #URL is messed up
-SRC_URI="https://downloads.sourceforge.net/project/findandreplace/findandreplace/${PV}/${PN}-${PV}-sources.tar.gz"
+SRC_URI="mirror://sourceforge/findandreplace/${PV}/${PN}-${PV}-sources.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
