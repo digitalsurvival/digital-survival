@@ -12,7 +12,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="A modern paint package"
+DESCRIPTION="A modern, cross platform paint package"
 HOMEPAGE="https://github.com/serge-rgb/${PN}"
 LICENSE="MIT"
 SLOT="0"
