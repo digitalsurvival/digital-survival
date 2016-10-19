@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI=5
 
-import fakegem
+inherit ruby-fakegem
 
 # https://wiki.gentoo.org/wiki/Project:Ruby/Packaging_RubyGems
 
