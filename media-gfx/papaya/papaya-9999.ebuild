@@ -4,6 +4,8 @@
 
 EAPI=6
 
+MY_PN="Papaya"
+
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ApoorvaJ/${PN}.git"
@@ -53,12 +55,14 @@ RDEPEND="${DEPEND}
 	dev-libs/libbsd:0
 "
 
+S="${WORKDIR}/${MY_PN}-${PV}"
+
 src_compile() {
-	cd "${WORKDIR}/build/linux"
-	emake makefile || die "make filed!"
+	cd "${S}/build/linux"
+	emake makefile || die "make failed!"
 }
 
 src_install() {
-	doexe "${WORKDIR}/build/linux/papaya"
+	doexe "${S}/build/linux/papaya"
 }
 
