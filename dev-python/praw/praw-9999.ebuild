@@ -23,10 +23,15 @@ LICENSE="GPL-3 BSD"
 SLOT="0"
 IUSE="doc text"
 
-DEPEND=""
+DEPEND="<=dev-python/decorator-4.1.0[${PYTHON_USEDEP}]
+"
 
 RDEPEND="
- test? ( =dev-python/mock[${PYTHON_USEDEP}])"
+	test? ( =dev-python/mock-1.0.1[${PYTHON_USEDEP}]
+	dev-python/betamax[${PYTHON_USEDEP}]
+	dev-python/betamax-matchers[${PYTHON_USEDEP}]
+	dev-python/betamax-serializers[${PYTHON_USEDEP}]
+	=dev-python/pytest-2.7.8[${PYTHON_USEDEP}] )
 "
 
 
