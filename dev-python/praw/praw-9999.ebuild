@@ -23,7 +23,10 @@ LICENSE="GPL-3 BSD"
 SLOT="0"
 IUSE="doc text"
 
-DEPEND="
-	test? ( =dev-python/mock[${PYTHON_USEDEP}])"
+DEPEND=""
 
-RDEPEND=""
+RDEPEND="
+ test? ( =dev-python/mock[${PYTHON_USEDEP}])"
+"
+
+

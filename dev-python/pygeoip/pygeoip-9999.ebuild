@@ -2,36 +2,45 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 python3_{3,4} )
 
-inherit python-r1
+inherit distutils-r1
 
 DESCRIPTION="Pure Python GeoIP API"
-HOMEPAGE="https://github.com/appliedsec/pygeoip"
+HOMEPAGE="https://github.com/appliedsec/pygeoip https://pypi.python.org/pypi/pygeoip"
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/appliedsec/${PN}.git
 	git://github.com/appliedsec/${PN}.git"
 else
-	SRC_URI="https://github.com/appliedsec/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
+	https://github.com/appliedsec/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-LICENSE="GPL-3"
+LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+IUSE="doc test"
 
-DEPEND=""
-
-RDEPEND="${DEPEND}
-dev-python/tox
-dev-python/nose
-dev-python/sphinx
-dev-python/sphinx_rtd_theme
+DEPEND=" test? ( dev-python/tox[${PYTHON_USEDEP}]
+	dev-python/nose[${PYTHON_USEDEP}]
+	)
+	doc? ( dev-python/sphinx[${PYTHON_USEDEP}]
+	dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+	)
 "
+RDEPEND=""
+
+python_compile_all() {
+    use doc && emake -C docs sphinx
+}
+
+python_test() {
+	nosetests || die "Testing failed with ${EPYTHON}"
+}
 
 src_configure() {
 	econf --with-posix-regex

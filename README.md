@@ -32,7 +32,7 @@ See the [source code repository](https://github.com/DigitalSurvival/ppp-pam#intr
 
 All works in progress...
 
-<sup><small><small>* The Anaconda related packages are a continuation of [wiktor-b's work](https://gitweb.gentoo.org/proj/anaconda-overlay.git/).</small></small></sup>
+<sup><small><small>* The Anaconda related packages are a continuation of [wiktor-b's work](https://gitweb.gentoo.org/proj/anaconda-overlay.git/) GSoC work.</small></small></sup>
 
 ### A bunch of modern text editors ###
 
