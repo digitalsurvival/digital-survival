@@ -10,11 +10,10 @@ inherit cmake-utils eutils pax-utils toolchain-funcs versionator wxwidgets games
 
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_HAS_SUBMODULES=1
-	EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
-	inherit git-2
-	KEYWORDS=""
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+	inherit git-r3
 else
-	SRC_URI="https://github.com/RPCS3/rpcs3/archive/v${PV}.tar.gz"
+	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -60,9 +59,7 @@ src_compile() {
 	# Read ; very much like PPSSPP, this build.
 	cd ffmpeg || die "Missing ffmpeg dir"
 
-	make clean
-	make
-	make install
+	emake
 
 	cmake-utils_src_compile
 }
