@@ -3,6 +3,9 @@
 # $Id$
 
 EAPI=6
+
+inherit
+
 # Dep of dev-cpp/microprofile for games-engines/intrinsic
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
