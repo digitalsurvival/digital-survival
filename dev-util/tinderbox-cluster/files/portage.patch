@@ -1,0 +1,329 @@
+2015-10-04  Magnus Granberg  <zorry@gentoo.org>
+
+	* tbc/pym/actions.py
+	Use the patched Scheduler and add build_dict so it can be ust.
+	We use or own mydepgraph (build_mydepgraph) that call backtrack_depgraph.
+	Return the output_buffer for emerge info.
+	And pass unresolvable in action_depclean so we can use it later.
+	* tbc/pym/main.py
+	Use or own patched actions.
+	We pass build_dict to some functions.
+	* tbc/pym/Scheduler.py
+	We copy Scheduler.py from portage and patch it.
+	Fix so we can use add_buildlog_main()
+	We use add_buildlog_main() for loging.
+	* tbc/pym/repoman.py
+	We add config_root pkdir and remove action
+
+--- a/pym/tbc/actions.py	2013-03-22 17:57:23.000000000 +0100
++++ b/pym/tbc/actions.py	2013-03-22 19:00:43.265582143 +0100
+@@ -72,7 +72,7 @@ from _emerge.MetadataRegen import Metada
+ from _emerge.Package import Package
+ from _emerge.ProgressHandler import ProgressHandler
+ from _emerge.RootConfig import RootConfig
+-from _emerge.Scheduler import Scheduler
++from tbc.Scheduler import Scheduler
+ from _emerge.search import search
+ from _emerge.SetArg import SetArg
+ from _emerge.show_invalid_depstring_notice import show_invalid_depstring_notice
+@@ -83,6 +83,8 @@ from _emerge.UnmergeDepPriority import U
+ from _emerge.UseFlagDisplay import pkg_use_display
+ from _emerge.userquery import userquery
+ 
++from tbc.build_depgraph import build_mydepgraph
++
+ if sys.hexversion >= 0x3000000:
+ 	long = int
+ 	_unicode = str
+@@ -90,7 +92,7 @@ else:
+ 	_unicode = unicode
+ 
+ def action_build(settings, trees, mtimedb,
+-	myopts, myaction, myfiles, spinner):
++	myopts, myaction, myfiles, spinner, build_dict, session):
+ 
+ 	if '--usepkgonly' not in myopts:
+ 		old_tree_timestamp_warn(settings['PORTDIR'], settings)
+@@ -319,20 +319,14 @@ def action_build(settings, trees, mtimed
+ 			print(darkgreen("emerge: It seems we have nothing to resume..."))
+ 			return os.EX_OK
+ 
+-		try:
+-			success, mydepgraph, favorites = backtrack_depgraph(
+-				settings, trees, myopts, myparams, myaction, myfiles, spinner)
+-		except portage.exception.PackageSetNotFound as e:
+-			root_config = trees[settings['EROOT']]['root_config']
+-			display_missing_pkg_set(root_config, e.value)
+-			return 1
++		success, settings, trees, mtimedb, mydepgraph = build_mydepgraph(settings,
++			trees, mtimedb, myopts, myparams, myaction, myfiles, spinner, build_dict, session)
+ 
+ 		if "--autounmask-only" in myopts:
+ 			mydepgraph.display_problems()
+ 			return 0
+ 
+ 		if not success:
+-			mydepgraph.display_problems()
+ 			return 1
+ 
+ 	mergecount = None
+@@ -613,7 +609,7 @@ def action_depclean(settings, trees, ldp
+ 	# The calculation is done in a separate function so that depgraph
+ 	# references go out of scope and the corresponding memory
+ 	# is freed before we call unmerge().
+-	rval, cleanlist, ordered, req_pkg_count = \
++	rval, cleanlist, ordered, req_pkg_count, unresolvable = \
+ 		calc_depclean(settings, trees, ldpath_mtimes,
+ 			myopts, action, args_set, spinner)
+ 
+@@ -816,7 +812,7 @@ def calc_depclean(settings, trees, ldpat
+ 	resolver.display_problems()
+ 
+ 	if not success:
+-		return 1, [], False, 0
++		return 1, [], False, 0, []
+ 
+ 	def unresolved_deps():
+ 
+@@ -827,7 +823,7 @@ def calc_depclean(settings, trees, ldpat
+ 				unresolvable.add((dep.atom, dep.parent.cpv))
+ 
+ 		if not unresolvable:
+-			return False
++			return None
+ 
+ 		if unresolvable and not allow_missing_deps:
+ 
+@@ -877,11 +873,12 @@ def calc_depclean(settings, trees, ldpat
+ 					"dependencies then use %s." % good("--nodeps"))
+ 			writemsg_level("".join("%s%s\n" % (prefix, line) for line in msg),
+ 				level=logging.ERROR, noiselevel=-1)
+-			return True
+-		return False
++			return unresolvable
++		return None
+ 
+-	if unresolved_deps():
+-		return 1, [], False, 0
++	unresolvable = unresolved_deps()
++	if not unresolvable is None:
++		return 1, [], False, 0, unresolvable
+ 
+ 	graph = resolver._dynamic_config.digraph.copy()
+ 	required_pkgs_total = 0
+@@ -1160,7 +1157,7 @@ def calc_depclean(settings, trees, ldpat
+ 						priority=UnmergeDepPriority(runtime=True),
+ 						root=pkg.root)):
+ 						resolver.display_problems()
+-						return 1, [], False, 0
++						return 1, [], False, 0, []
+ 
+ 			writemsg_level("\nCalculating dependencies  ")
+ 			success = resolver._complete_graph(
+@@ -1168,9 +1165,10 @@ def calc_depclean(settings, trees, ldpat
+ 			writemsg_level("\b\b... done!\n")
+ 			resolver.display_problems()
+ 			if not success:
+-				return 1, [], False, 0
+-			if unresolved_deps():
+-				return 1, [], False, 0
++				return 1, [], False, 0, []
++			unresolvable = unresolved_deps()
++			if not unresolvable is None:
++				return 1, [], False, 0, unresolvable
+ 
+ 			graph = resolver._dynamic_config.digraph.copy()
+ 			required_pkgs_total = 0
+@@ -1179,7 +1177,7 @@ def calc_depclean(settings, trees, ldpat
+ 					required_pkgs_total += 1
+ 			cleanlist = create_cleanlist()
+ 			if not cleanlist:
+-				return 0, [], False, required_pkgs_total
++				return 0, [], False, required_pkgs_total, []
+ 			clean_set = set(cleanlist)
+ 
+ 	if clean_set:
+@@ -1289,8 +1287,8 @@ def calc_depclean(settings, trees, ldpat
+ 					graph.remove(node)
+ 					cleanlist.append(node.cpv)
+ 
+-		return 0, cleanlist, ordered, required_pkgs_total
+-	return 0, [], False, required_pkgs_total
++		return 0, cleanlist, ordered, required_pkgs_total, []
++	return 0, [], False, required_pkgs_total, []
+ 
+ def action_deselect(settings, trees, opts, atoms):
+ 	enter_invalid = '--ask-enter-invalid' in opts
+@@ -1692,11 +1692,8 @@ def action_info(settings, trees, myopts,
+ 			unset_vars.append(k)
+ 	if unset_vars:
+ 		append("Unset:  "+", ".join(unset_vars))
+-	append("")
+-	append("")
+-	writemsg_stdout("\n".join(output_buffer),
+-		noiselevel=-1)
+-	del output_buffer[:]
++
++	return False, output_buffer
+ 
+ 	# If some packages were found...
+ 	if mypkgs:
+@@ -3607,7 +3607,7 @@ def repo_name_duplicate_check(trees):
+ 
+ 	return bool(ignored_repos)
+ 
+-def run_action(emerge_config):
++def run_action(emerge_config, build_dict, session):
+ 
+ 	# skip global updates prior to sync, since it's called after sync
+ 	if emerge_config.action not in ('help', 'info', 'sync', 'version') and \
+@@ -4059,7 +4059,7 @@ def run_action(emerge_config):
+ 		retval = action_build(emerge_config.target_config.settings,
+ 			emerge_config.trees, emerge_config.target_config.mtimedb,
+ 			emerge_config.opts, emerge_config.action,
+-			emerge_config.args, spinner)
++			emerge_config.args, spinner, build_dict, session)
+ 		post_emerge(emerge_config.action, emerge_config.opts,
+ 			emerge_config.args, emerge_config.target_config.root,
+ 			emerge_config.trees, emerge_config.target_config.mtimedb, retval)
+--- a/pym/tbc/main.py	2013-03-22 17:57:23.000000000 +0100
++++ b/pym/tbc/main.py	2012-12-06 03:32:56.104889716 +0100
+@@ -11,7 +11,7 @@ portage.proxy.lazyimport.lazyimport(glob
+ 	'logging',
+ 	'portage.util:writemsg_level',
+ 	'textwrap',
+-	'_emerge.actions:load_emerge_config,run_action,' + \
++	'tbc.actions:load_emerge_config,run_action,' + \
+ 		'validate_ebuild_environment',
+ 	'_emerge.help:help@emerge_help',
+ )
+@@ -968,15 +968,20 @@ def profile_check(trees, myaction):
+ 		return 1
+ 	return os.EX_OK
+ 
+-def emerge_main(args=None):
++def emerge_main(args=None, build_dict=None, session=None):
+ 	"""
+ 	@param args: command arguments (default: sys.argv[1:])
+ 	@type args: list
++	@param build_dict: info of the build_job
++	@type build_dict: dict
+ 	"""
+ 	if args is None:
+ 		args = sys.argv[1:]
+ 
+ 	args = portage._decode_argv(args)
++
++	if build_dict is None:
++		build_dict = {}
+ 
+ 	# Disable color until we're sure that it should be enabled (after
+ 	# EMERGE_DEFAULT_OPTS has been parsed).
+@@ -1028,7 +1028,7 @@ def emerge_main(args=None):
+ 		parse_opts(tmpcmdline)
+ 
+ 	try:
+-		return run_action(emerge_config)
++		return run_action(emerge_config, build_dict, session)
+ 	finally:
+ 		# Call destructors for our portdbapi instances.
+ 		for x in emerge_config.trees.values():
+--- a/pym/tbc/Scheduler.py	2013-03-22 17:57:23.000000000 +0100
++++ b/pym/tbc/Scheduler.py	2012-12-21 02:09:28.082301168 +0100
+@@ -62,6 +62,8 @@ from _emerge.PackageMerge import Package
+ from _emerge.PollScheduler import PollScheduler
+ from _emerge.SequentialTaskQueue import SequentialTaskQueue
+ 
++from tbc.build_log import add_buildlog_main
++
+ if sys.hexversion >= 0x3000000:
+ 	basestring = str
+ 
+@@ -1254,8 +1251,9 @@ class Scheduler(PollScheduler):
+ 
+ 	def _do_merge_exit(self, merge):
+ 		pkg = merge.merge.pkg
++		settings = merge.merge.settings
++		trees = self.trees
+ 		if merge.returncode != os.EX_OK:
+-			settings = merge.merge.settings
+ 			build_dir = settings.get("PORTAGE_BUILDDIR")
+ 			build_log = settings.get("PORTAGE_LOG_FILE")
+ 
+@@ -1266,6 +1264,7 @@ class Scheduler(PollScheduler):
+ 			if not self._terminated_tasks:
+ 				self._failed_pkg_msg(self._failed_pkgs[-1], "install", "to")
+ 				self._status_display.failed = len(self._failed_pkgs)
++			add_buildlog_main(settings, pkg, trees)
+ 			return
+ 
+ 		self._task_complete(pkg)
+@@ -1284,6 +1283,7 @@ class Scheduler(PollScheduler):
+ 				self._pkg_cache.pop(pkg_to_replace, None)
+ 
+ 		if pkg.installed:
++			add_buildlog_main(settings, pkg, trees)
+ 			return
+ 
+ 		# Call mtimedb.commit() after each merge so that
+@@ -1294,6 +1294,7 @@ class Scheduler(PollScheduler):
+ 		if not mtimedb["resume"]["mergelist"]:
+ 			del mtimedb["resume"]
+ 		mtimedb.commit()
++		add_buildlog_main(settings, pkg, trees)
+ 
+ 	def _build_exit(self, build):
+ 		self._running_tasks.pop(id(build), None)
+@@ -1318,6 +1319,8 @@ class Scheduler(PollScheduler):
+ 				self._status_display.merges = len(self._task_queues.merge)
+ 		else:
+ 			settings = build.settings
++			trees = self.trees
++			pkg = build.pkg
+ 			build_dir = settings.get("PORTAGE_BUILDDIR")
+ 			build_log = settings.get("PORTAGE_LOG_FILE")
+ 
+@@ -1329,6 +1332,7 @@ class Scheduler(PollScheduler):
+ 				self._failed_pkg_msg(self._failed_pkgs[-1], "emerge", "for")
+ 				self._status_display.failed = len(self._failed_pkgs)
+ 			self._deallocate_config(build.settings)
++			add_buildlog_main(settings, pkg, trees)
+ 		self._jobs -= 1
+ 		self._status_display.running = self._jobs
+ 		self._schedule()
+--- a/pym/tbc/repoman.py	2015-09-22 02:20:41.000000000 +0200
++++ b/pym/tbc/repoman.py	2015-10-04 20:21:57.586494104 +0200
+@@ -45,8 +45,9 @@ bad = create_color_func("BAD")
+ os.umask(0o22)
+ 
+ 
+-def repoman_main(argv):
+-	config_root = os.environ.get("PORTAGE_CONFIGROOT")
++def repoman_main(argv, config_root=None, pkgdir=None):
++	if config_root is None:
++		config_root = os.environ.get("PORTAGE_CONFIGROOT")
+ 	repoman_settings = portage.config(config_root=config_root, local_config=False)
+ 
+ 	if repoman_settings.get("NOCOLOR", "").lower() in ("yes", "true") or \
+@@ -71,6 +72,9 @@ def repoman_main(argv):
+ 	# commit (like if Manifest generation fails).
+ 	can_force = True
+ 
++	if not pkgdir is None:
++            os.chdir(pkgdir)
++
+ 	portdir, portdir_overlay, mydir = utilities.FindPortdir(repoman_settings)
+ 	if portdir is None:
+ 		sys.exit(1)
+@@ -159,10 +163,4 @@ def repoman_main(argv):
+ 	qa_output = qa_output.getvalue()
+ 	qa_output = qa_output.splitlines(True)
+ 
+-	# output the results
+-	actions = Actions(repo_settings, options, scanner, vcs_settings)
+-	if actions.inform(can_force, result):
+-		# perform any other actions
+-		actions.perform(qa_output)
+-
+-	sys.exit(0)
++	return qatracker, qawarnings

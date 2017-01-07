@@ -9,24 +9,24 @@ inherit linux-info linux-mod
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/dynup/${PN}.git"
-	KEYWORDS=""
 else
-	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/dynup/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Dynamic kernel patching for Linux"
 HOMEPAGE="https://github.com/dynup/kpatch"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~amd64"
-IUSE="test examples +module kernel_linux"
+IUSE="test examples +module"
 
-DEPEND="dev-libs/elfutils
->=sys-devel/gcc:4.9.3
+DEPEND="
+	dev-libs/elfutils
+	>=sys-devel/gcc:4.9.3
 "
 
-RDEPEND="app-crypt/pesign
+RDEPEND="
+	app-crypt/pesign
 	dev-libs/openssl
 	sys-libs/zlib
 	sys-apps/pciutils
