@@ -1,1 +1,0 @@
-nixnote-9999.ebuild
