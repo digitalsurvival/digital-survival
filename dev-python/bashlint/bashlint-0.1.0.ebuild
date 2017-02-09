@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -14,12 +14,12 @@ SRC_URI="https://github.com/skudriashev/${PN}/archive/${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 DEPEND="test? (
-	>=dev-python/nose-1.3.0[${PYTHON_USEDEPS}]
-	>=dev-python/testtools-0.9.34[${PYTHON_USEDEPS}] 
+	>=dev-python/nose-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/testtools-0.9.34[${PYTHON_USEDEP}] 
 	)"
 RDEPEND=""
 

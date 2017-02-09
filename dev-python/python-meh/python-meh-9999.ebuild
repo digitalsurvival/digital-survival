@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -17,7 +17,6 @@ HOMEPAGE="https://github.com/rhinstaller/python-meh"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="gtk"
 
 COMMON_DEPEND="dev-util/intltool
@@ -33,12 +32,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/newt
 	gtk? ( dev-python/pygtk:2 )
-	
-	dev-python/python-report
+	dev-python/report
 	net-misc/openssh
 	"
 
 src_prepare() {
-	cd "${S}"
 	epatch "${FILESDIR}/${PN}-keep_exc_win_above.patch"
 }

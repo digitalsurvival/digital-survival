@@ -2,14 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>
-			maffblaster@gentoo.org
-		</email>
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
-	<longdescription>
-		Python exception handling library
-	</longdescription>
 	<use>
-		<!-- TODO -->
+		<flag name="gtk">Add support for <pkg>x11-libs/gtk+</pkg></flag>	
 	</use>
 </pkgmetadata>

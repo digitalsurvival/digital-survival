@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -37,7 +37,7 @@ IUSE=""
 # update imapclient to 1.0.1
 # add dev-python/tldextract
 DEPEND=">=dev-python/gevent-1.0.1
-	>=nylas-production-python-0.2.0
+	>=dev-python/nylas-production-python-0.2.0
 	>=dev-python/click-2.4
 	>=dev-python/cpu_affinity-0.1.0
 	dev-python/pyyaml

@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -21,7 +21,7 @@ DESCRIPTION="A Python Reddit API Wrapper"
 HOMEPAGE="https://praw.readthedocs.org/en/stable/"
 LICENSE="GPL-3 BSD"
 SLOT="0"
-IUSE="doc text"
+IUSE="doc test"
 
 DEPEND="<=dev-python/decorator-4.1.0[${PYTHON_USEDEP}]
 "

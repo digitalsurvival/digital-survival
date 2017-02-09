@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,7 +18,7 @@ IUSE="gtk selinux"
 # TODO: split package?
 RDEPEND="selinux? ( sys-libs/libselinux )
 	dev-python/dbus-python
-	|| ( sys-auth/polkit sys-auth/policykit )
+	sys-auth/polkit
 	dev-python/decorator
 	gtk? ( dev-python/pygtk )"
 
