@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=A portable, license-free, lock-free data structure library written in C
+EAPI=6
+HOMEPAGE=http://liblfds.org/
+KEYWORDS=~amd64
+LICENSE=|| ( MIT BSD Apache-2.0 GPL-2 )
+SLOT=0
+SRC_URI=http://liblfds.org/downloads/liblfds%20release%207.1.0%20source.tar.bz2
+_md5_=2af94838dd7ce39a7c9d86daa7c20494

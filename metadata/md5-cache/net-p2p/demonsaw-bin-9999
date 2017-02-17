@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=A secure, anonymous, and cross-platform file sharing and chat client
+EAPI=6
+HOMEPAGE=https://www.demonsaw.com
+KEYWORDS=~x86 ~amd64
+SLOT=0
+SRC_URI=amd64? ( https://www.demonsaw.com/download/9999/demonsaw_debian_64.tar.gz ) x86? ( https://www.demonsaw.com/download/9999/demonsaw_debian_32.tar.gz )
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	multilib	165fc17c38d1b11dac2008280dab6e80	pax-utils	4c2654a34ebe732e85fda354f6ee642f	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=d709a8f857e5ddcef302f7fcdaddce2a

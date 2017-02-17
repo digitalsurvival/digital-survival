@@ -1,0 +1,11 @@
+DEFINED_PHASES=unpack
+DEPEND=>=dev-python/gevent-1.0.1 >=dev-python/nylas-production-python-0.2.0 >=dev-python/click-2.4 >=dev-python/cpu_affinity-0.1.0 dev-python/pyyaml =dev-python/sqlalchemy-1.0.11 >=dev-python/alembic-0.6.4 >=dev-python/requests-2.4.3 >=dev-python/html2text-2014.9.8 >=dev-python/pyinstrument-0.12 >=dev-python/pymysql-0.6.2 =dev-python/mysqlclient-1.3.7 >=dev-python/setproctitle-1.1.8 >=dev-python/pymongo-2.5.2 =dev-python/python-dateutil-2.4.2 >=dev-python/ipython-1.0.0 =dev-python/enum34-1.0.4 >=dev-python/gdata-2.0.18 >=dev-python/icalendar-3.8.2 >=dev-python/simplejson-3.6.0 >=dev-python/flask-0.10.1 =dev-python/flask-restful-0.3.2 >=dev-python/libnacl-0.2.3 >=dev-python/flanker-0.4.26 >=dev-python/httplib2-0.8 >=dev-python/six-1.8 >=dev-python/vobject-0.8.1c >=dev-python/lxml-3.4.2 =dev-python/arrow-0.5.4 >=dev-python/statsd-3.1 =dev-python/boto3-1.1.4 =dev-python/pympler-0.4.2 >=dev-python/pyopenssl-0.15.1 =dev-python/gevent-openssl-1.2 >=dev-python/backports-ssl-0.0.9 =dev-python/imapclient-1.0.1 =dev-python/tldextract-1.7.5
+DESCRIPTION=A Python IMAP/SMTP sync system with modern APIs
+EAPI=6
+HOMEPAGE=https://nylas.com/docs/platform
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+SLOT=0
+SRC_URI=https://github.com/nylas/sync-engine/archive/v0.3.0.tar.gz -> nylas-sync-engine-0.3.0.tar.gz
+_eclasses_=vcs-snapshot	2b65ecb2d0f91e4322c2ac8d673993bd
+_md5_=94f159308fba6c4417e6c9239f633127

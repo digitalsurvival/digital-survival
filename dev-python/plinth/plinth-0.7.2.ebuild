@@ -23,15 +23,15 @@ LICENSE="AGPL-3"
 SLOT="0"
 IUSE=""
 
-DEPEND="dev-python/setuptools"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
-RDEPEND=">=dev-python/django-1.7.0
->=dev-python/cherrypy-3.0
->=dev-python/coverage-3.7
-dev-python/pyyaml
-dev-python/python-augeas
-dev-python/psutil
-dev-python/django-stronghold
+RDEPEND=">=dev-python/django-1.7.0[${PYTHON_USEDEP}]
+>=dev-python/cherrypy-3.0[${PYTHON_USEDEP}]
+>=dev-python/coverage-3.7[${PYTHON_USEDEP}]
+dev-python/pyyaml[${PYTHON_USEDEP}]
+dev-python/python-augeas[${PYTHON_USEDEP}]
+dev-python/psutil[${PYTHON_USEDEP}]
+dev-python/django-stronghold[${PYTHON_USEDEP}]
 "
 
 python_install() {

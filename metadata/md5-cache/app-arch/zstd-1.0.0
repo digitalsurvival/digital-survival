@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=A fast real-time compression algorithm
+EAPI=6
+HOMEPAGE=http://www.zstd.net
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://github.com/facebook/zstd/archive/v1.0.0.tar.gz -> zstd-1.0.0.tar.gz
+_md5_=79517ca0e8bee5fb8fe836d5ca4d2380

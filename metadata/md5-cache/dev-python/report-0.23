@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=app-arch/rpm net-misc/curl !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DESCRIPTION=Provides a single configurable problem/bug/issue reporting API.
+EAPI=6
+HOMEPAGE=https://git.fedorahosted.org/cgit/report.git/
+KEYWORDS=~x86 ~amd64
+LICENSE=GPL-2
+RDEPEND=dev-libs/openssl net-misc/curl dev-libs/libxml2
+SLOT=0
+SRC_URI=https://git.fedorahosted.org/cgit/report.git/snapshot/report-0.23.tar.xz
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	ea170b525f6a38a006be05c9d9429f13	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=b6a18a04006d2db37bbc9542b392ac85

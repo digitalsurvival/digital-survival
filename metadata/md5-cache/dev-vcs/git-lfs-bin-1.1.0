@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/go-1.4.2:=
+DESCRIPTION=GitHub's large file storage plugin for git (binary package)
+EAPI=5
+HOMEPAGE=https://git-lfs.github.com/
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-lang/go-1.5.0
+SLOT=0
+SRC_URI=https://github.com/github/git-lfs/releases/download/v1.1.0/git-lfs-linux-amd64-1.1.0.tar.gz -> git-lfs-bin-1.1.0.tar.gz
+_eclasses_=golang-base	08fe6e0e2b4750daff8887a7f0e1f873	golang-build	a44f10e6bd86ecccf2a07cc0d4cf6bec
+_md5_=a48a187212901eb6f6dd86769560f084

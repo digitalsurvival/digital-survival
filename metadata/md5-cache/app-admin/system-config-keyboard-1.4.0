@@ -1,0 +1,11 @@
+DEFINED_PHASES=-
+DEPEND=dev-util/intltool sys-devel/gettext dev-util/desktop-file-utils
+DESCRIPTION=A Fedora keyboard management tool
+EAPI=6
+HOMEPAGE=https://fedorahosted.org/system-config-keyboard/wiki https://git.fedorahosted.org/git/system-config-keyboard.git
+KEYWORDS=~x86 ~amd64
+LICENSE=GPL-2
+RDEPEND=app-admin/firstboot
+SLOT=0
+SRC_URI=https://fedorahosted.org/released/system-config-keyboard/system-config-keyboard-1.4.0.tar.bz2
+_md5_=f7b83183dcda53b921cfb92500bf38ed

@@ -1,0 +1,9 @@
+DEFINED_PHASES=unpack
+DEPEND=>=dev-python/raven-5.5.0 >=dev-python/gevent-1.0.1 >=dev-python/colorlog-1.8 >=www-servers/gunicorn-19.0.0 >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Utilities for running Python code in production
+EAPI=6
+HOMEPAGE=https://github.com/nylas/nylas-production-python https://nylas.com/docs/platform
+LICENSE=|| ( Apache-2.0 MIT )
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=604d3e9d550d99406833a6653f94132a

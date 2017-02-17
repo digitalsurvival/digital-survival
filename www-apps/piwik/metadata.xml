@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>
-			maffblaster@gentoo.org
-		</email>
+	<maintainer type="person">
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
 	</maintainer>
-	<longdescription>
-		A web-based real-time performance monitoring app
-	</longdescription>
 	<use>
-		<flag name="zlib">
-				Enables compressed streams (saves a lot of bandwidth).
-		</flag>
+		<flag name="zlib">Enables compressed streams (saves a lot of bandwidth).</flag>
 	</use>
 </pkgmetadata>

@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=dev-ruby/rake:0 dev-ruby/asciidoctor:0 dev-ruby/json:0 dev-ruby/awesome_print:0 dev-ruby/coderay:0 dev-ruby/pygments_rb:0 dev-ruby/thread_safe:0 # Todo dev-ruby/asciidoctor-epub3-1.0.0.alpha.2 dev-ruby/asciidoctor-pdf-1.5.0.alpha.5 dev-ruby/epubcheck:0 dev-ruby/kindlegen:0 test? ( ) >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Pro Git 2nd Edition ebook
+EAPI=5
+HOMEPAGE=https://git-scm.com/book/en/v2
+IUSE=elibc_FreeBSD doc test test
+LICENSE=CC-BY-NC-SA-3.0
+RDEPEND=dev-ruby/rake:0 dev-ruby/asciidoctor:0 dev-ruby/json:0 dev-ruby/awesome_print:0 dev-ruby/coderay:0 dev-ruby/pygments_rb:0 dev-ruby/thread_safe:0 # Todo dev-ruby/asciidoctor-epub3-1.0.0.alpha.2 dev-ruby/asciidoctor-pdf-1.5.0.alpha.5 dev-ruby/epubcheck:0 dev-ruby/kindlegen:0
+REQUIRED_USE=|| ( )
+SLOT=0
+SRC_URI=mirror://rubygems/progit2-9999.gem
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	java-utils-2	8cefdc020b528862da5737e2a230f708	multilib	165fc17c38d1b11dac2008280dab6e80	ruby-fakegem	2b249022d4895a29827658b7d630c461	ruby-ng	934780d41ab18a9ff091703f511371be	ruby-utils	382c3a262907e1219a21618dfd1a01a0	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=d991c52504f027aaf5586f18c7d821c5

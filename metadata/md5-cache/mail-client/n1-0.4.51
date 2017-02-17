@@ -1,0 +1,10 @@
+DEFINED_PHASES=unpack
+DESCRIPTION=An extensible mail client built with web technology
+EAPI=6
+HOMEPAGE=https://nylas.com/N1
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/nylas/n1/archive/0.4.51.tar.gz -> n1-0.4.51.tar.gz
+_eclasses_=vcs-snapshot	2b65ecb2d0f91e4322c2ac8d673993bd
+_md5_=23fc3c8efa4cd1d30b47e720f2a2a47d

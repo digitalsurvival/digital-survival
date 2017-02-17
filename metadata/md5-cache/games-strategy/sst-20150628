@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=A super simple text-based Star Trek game.
+EAPI=5
+HOMEPAGE=http://almy.us/sst.html
+KEYWORDS=amd64 x86
+LICENSE=public-domain
+SLOT=0
+SRC_URI=http://almy.us/files/sstsrc.zip -> sst-20150628.zip
+_md5_=0220851e031aa8d382ad64a1da81cd87

@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=|| ( virtual/httpd-basic virtual/httpd-cgi virtual/httpd-fastcgi ) >=app-admin/webapp-config-1.50.15
+DESCRIPTION=Real time web analytics software
+EAPI=6
+HOMEPAGE=https://piwik.org/ https://github.com/piwik/piwik
+IUSE=sql vhosts
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=sql? ( || dev-db/mariadb dev-db/mysql ) >=app-admin/webapp-config-1.50.15
+SLOT=0
+SRC_URI=https://builds.piwik.org/piwik-2.16.0.zip
+_eclasses_=webapp	42c6ef7af496b228f9854b3c81e4b226
+_md5_=695c8cf6ab97b633e7f5145157b0d6c6

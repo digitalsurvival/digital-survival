@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=A web-based real-time performance monitoring app
+EAPI=6
+HOMEPAGE=http://code.visualstudio.com/ https://github.com/Microsoft/vscode
+KEYWORDS=~x86 ~amd64
+LICENSE=MIT
+RESTRICT=primaryuri
+SLOT=0
+SRC_URI=https://github.com/microsoft/vscode/archive/1.5.0.tar.gz -> vscode-1.5.0.tar.gz
+_md5_=fc9997a56cac7a66891480001c0a742b

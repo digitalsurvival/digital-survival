@@ -1,0 +1,9 @@
+DEFINED_PHASES=unpack
+DEPEND=>=dev-vcs/git-1.8.2.1
+DESCRIPTION=An open source text editor from Adobe
+EAPI=6
+HOMEPAGE=http://brackets.io/ https://github.com/adobe/brackets
+LICENSE=MIT
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=2f03300a5d67ddada544d0664d1b90dd

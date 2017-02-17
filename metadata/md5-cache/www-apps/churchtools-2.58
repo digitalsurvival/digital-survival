@@ -1,0 +1,8 @@
+DEFINED_PHASES=-
+DESCRIPTION=A collection of web apps tailored for church
+EAPI=6
+HOMEPAGE=https://www.churchtools.de/ https://github.com/churchtools/churchtools_basic
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+_md5_=7d93fc09b5e862c6ccb28ab3d791939b

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
+		<name>Matthew Marchese</name>
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
-	<longdescription>
-		GitHub's large file storage plugin for git
-		</longdescription>
 	<use>
 		<!-- TODO -->
 	</use>

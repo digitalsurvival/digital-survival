@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DEPEND=media-libs/libsndfile:0
+DESCRIPTION=A C++ library for resampling audio signals
+EAPI=6
+HOMEPAGE=http://kokkinizita.linuxaudio.org/linuxaudio/
+IUSE=+tools
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=http://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-resampler-1.6.0.tar.bz2
+_md5_=fa9e2ab57baa593a22762b4f29ab671c

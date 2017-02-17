@@ -1,0 +1,10 @@
+DEFINED_PHASES=prepare unpack
+DEPEND=sys-libs/libunwind !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-vcs/git
+DESCRIPTION=Collection of nifty performance analysis tools.
+EAPI=4
+HOMEPAGE=https://github.com/gperftools/gperftools
+LICENSE=BSD
+RDEPEND=sys-libs/libunwind
+SLOT=0
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	git-2	7af5d170bfc02983b4bcd3167dc5edd4	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=3ad15f5c2ba96d64763ab1b74cc2ad6c

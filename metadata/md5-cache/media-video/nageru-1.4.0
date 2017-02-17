@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=A modern free software video mixer
+EAPI=6
+HOMEPAGE=https://nageru.sesse.net/
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=net-libs/libmicrohttpd:0/12 >=media-video/ffmpeg-3.1.0
+SLOT=0
+SRC_URI=https://nageru.sesse.net/nageru-1.4.0.tar.gz
+_md5_=3d6f492b6ab78da946c094d35c9c973a

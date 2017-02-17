@@ -1,0 +1,12 @@
+DEFINED_PHASES=prepare
+DEPEND=dev-util/intltool sys-devel/gettext dev-python/dbus-python dev-libs/libreport dev-python/setuptools dev-python/six
+DESCRIPTION=Python exception handling library
+EAPI=6
+HOMEPAGE=https://github.com/rhinstaller/python-meh
+IUSE=gtk
+KEYWORDS=~x86 ~amd64
+LICENSE=GPL-2
+RDEPEND=dev-util/intltool sys-devel/gettext dev-python/dbus-python dev-libs/libreport dev-libs/newt gtk? ( dev-python/pygtk:2 ) dev-python/report net-misc/openssh
+SLOT=0
+SRC_URI=https://github.com/rhinstaller/python-meh/archive/python-meh-0.44.tar.gz
+_md5_=277ca599882afa4e36c0408c60b014b7

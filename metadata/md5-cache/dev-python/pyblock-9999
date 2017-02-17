@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile unpack
+DEPEND=sys-devel/gettext >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Python interface for working with block devices
+EAPI=5
+HOMEPAGE=https://git.fedorahosted.org/git/pyblock.git?p=pyblock.git;a=summary
+IUSE=selinux
+LICENSE=GPL-2
+RDEPEND=sys-devel/gettext sys-fs/lvm2 sys-fs/dmraid dev-python/pyparted
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=c0876547f5e19e3a78cb6708c4bd861a

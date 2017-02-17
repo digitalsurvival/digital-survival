@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm prepare
+DEPEND==dev-lang/python-2*
+DESCRIPTION=The Simple Library for Python packages
+EAPI=3
+HOMEPAGE=https://fedorahosted.org/python-slip/
+IUSE=gtk selinux
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=selinux? ( sys-libs/libselinux ) dev-python/dbus-python sys-auth/polkit dev-python/decorator gtk? ( dev-python/pygtk ) =dev-lang/python-2*
+SLOT=0
+SRC_URI=https://fedorahosted.org/released/python-slip/python-slip-0.2.17.tar.bz2
+_eclasses_=distutils	ad9e4720eb3e69090dd968b152fc611b	multilib	165fc17c38d1b11dac2008280dab6e80	python	efc1c55fc44c5b7272fc2ffba73c3e6f	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=dca8d226e383f01556242a9f59975f3d

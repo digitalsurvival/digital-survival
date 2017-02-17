@@ -1,0 +1,12 @@
+DEFINED_PHASES=-
+DEPEND=>=dev-util/cmake-2.8.0
+DESCRIPTION=Single C source file zlib-replacement library
+EAPI=6
+HOMEPAGE=https://github.com/richgel999/miniz
+IUSE=examples
+KEYWORDS=~amd64
+LICENSE=Unlicense
+RDEPEND=>=dev-util/cmake-2.8.0
+SLOT=0
+SRC_URI=https://github.com/richgel999/miniz/archive/v114.tar.gz -> miniz-114.tar.gz
+_md5_=e85008e89eba439728fc6aa63eb81d98

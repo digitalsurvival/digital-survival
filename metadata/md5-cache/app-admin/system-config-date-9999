@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postrm unpack
+DEPEND=app-text/docbook-xml-dtd app-text/docbook-sgml-dtd app-text/gnome-doc-utils app-text/rarian dev-libs/newt dev-util/desktop-file-utils dev-util/intltool sys-devel/gettext >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Fedora's system-config-date tool
+EAPI=6
+HOMEPAGE=http://fedoraproject.org/wiki/SystemConfig/date https://git.fedorahosted.org/git/system-config-date.git
+IUSE=gtk
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/newt dev-python/python-slip dev-python/rhpl gtk? ( dev-python/pygtk:2 dev-python/libgnomecanvas-python x11-themes/hicolor-icon-theme )
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=7071f0b155b3106cd20a7ea142db361e

@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=app-text/hunspell dev-libs/boost qt4? ( app-text/poppler[qt4] dev-qt/qtwebkit:4 dev-qt/qtcore:4 dev-qt/qtgui:4 dev-qt/qtsql:4 opencv3? ( media-libs/opencv:0/3.0[qt4] ) !opencv3? ( media-libs/opencv:0/2.4[qt4] ) ) qt5? ( app-text/poppler[qt5] dev-qt/qtwebkit:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtsql:5 media-libs/opencv[qt5] ) dev-libs/libevent sys-devel/automake:* dev-libs/openssl:0 sys-devel/libtool sys-devel/flex sys-devel/bison virtual/pkgconfig net-print/cups >=dev-vcs/git-1.8.2.1
+DESCRIPTION=An open source Evernote clone for Linux.
+EAPI=6
+HOMEPAGE=https://github.com/baumgarr/Nixnote2
+IUSE=+qt4 qt5 opencv3
+LICENSE=GPL-2
+RDEPEND=app-text/htmltidy
+REQUIRED_USE=^^ ( qt4 qt5 ) qt5? ( opencv3 )
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	qmake-utils	0a242e7177789b0028b4045f336dd4db	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=3ab64c0c99607040b0a99af293ba6654

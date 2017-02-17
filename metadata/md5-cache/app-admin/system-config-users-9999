@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DEPEND=dev-util/desktop-file-utils dev-util/intltool sys-apps/findutils sys-devel/gettext >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Fedora's system-config-users tool
+EAPI=6
+HOMEPAGE=http://fedoraproject.org/wiki/SystemConfig/users https://git.fedorahosted.org/git/system-config-users.git
+IUSE=X
+LICENSE=GPL-2
+RDEPEND=X? ( >=dev-python/pygtk-2.6 x11-misc/xdg-utils ) >=sys-libs/libuser-0.56 sys-libs/cracklib sys-process/procps
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=14545983783815b91743f9d687befb9a

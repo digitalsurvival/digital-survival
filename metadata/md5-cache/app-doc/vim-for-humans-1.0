@@ -1,0 +1,11 @@
+DEFINED_PHASES=-
+DEPEND=app-text/texlive:0 dev-python/sphinx:0[latex] dev-python/pygments:0
+DESCRIPTION=Vim for humans ebook
+EAPI=6
+HOMEPAGE=https://vimebook.com/en
+KEYWORDS=~amd64
+LICENSE=CC-BY-4.0
+RDEPEND=app-text/texlive:0 dev-python/sphinx:0[latex] dev-python/pygments:0
+SLOT=0
+SRC_URI=https://github.com/vjousse/vim-for-humans-book/archive/v1.0.tar.gz -> vim-for-humans-1.0.tar.gz
+_md5_=0ca434845a76644f307570d1362ecb3c

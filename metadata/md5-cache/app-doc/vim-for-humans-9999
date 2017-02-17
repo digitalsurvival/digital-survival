@@ -1,0 +1,10 @@
+DEFINED_PHASES=unpack
+DEPEND=app-text/texlive:0 dev-python/sphinx:0[latex] dev-python/pygments:0 >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Vim for humans ebook
+EAPI=6
+HOMEPAGE=https://vimebook.com/en
+LICENSE=CC-BY-4.0
+RDEPEND=app-text/texlive:0 dev-python/sphinx:0[latex] dev-python/pygments:0
+SLOT=0
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=0ca434845a76644f307570d1362ecb3c

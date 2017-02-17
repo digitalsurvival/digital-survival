@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=A Slack like open source chat server
+EAPI=6
+HOMEPAGE=https://rocket.chat/
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/RocketChat/Rocket.Chat/archive/0.30.0.tar.gz -> rocketchat-0.30.0.tar.gz
+_md5_=9696b5d79e2a1189e64a394444d2c92e

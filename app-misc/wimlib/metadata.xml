@@ -2,13 +2,14 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<name>Matthew Marchese</name>
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
 	<longdescription lang="en">A suite for manipulating .wim files.</longdescription>
 	<use>
 		<flag name="fuse">Enable image mount support via fuse</flag>
 		<flag name="iso">Include runtime dependancies for ISO manipulation</flag>
-		<flag name="ntfs">Include NTFS support (<pkg>sys-fs/ntfs3g[ntfsprogs]</pkg>)</flag>
+		<flag name="ntfs">Include NTFS support (<pkg>sys-fs/ntfs3g</pkg>[ntfsprogs])</flag>
 		<flag name="openssl">Enable crypto functions using OpenSSL (<pkg>dev-libs/openssl</pkg>)</flag>
 	</use>
 </pkgmetadata>
