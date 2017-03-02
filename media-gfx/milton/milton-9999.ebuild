@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -15,7 +14,7 @@ else
 fi
 
 DESCRIPTION="A modern, cross platform paint package"
-HOMEPAGE="https://github.com/serge-rgb/${PN}"
+HOMEPAGE="https://github.com/serge-rgb/milton"
 LICENSE="MIT"
 SLOT="0"
 
