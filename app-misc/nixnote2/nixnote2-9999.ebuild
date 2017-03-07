@@ -5,17 +5,15 @@ EAPI=6
 
 inherit qmake-utils
 
-MY_PN="${PN}2"
 MY_PV="${PV/_/-}"
-MY_P="${MY_PN}-${MY_PV}"
+MY_P="${PN}-${MY_PV}"
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/baumgarr/${MY_PN}.git
-		git://github.com/baumgarr/${MY_PN}.git"
-	KEYWORDS=""
+	EGIT_REPO_URI="https://github.com/baumgarr/${PN}.git
+		git://github.com/baumgarr/${PN}.git"
 else
-	SRC_URI="https://github.com/baumgarr/${MY_PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/baumgarr/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -41,8 +39,8 @@ DEPEND="
 		dev-qt/qtcore:4
 		dev-qt/qtgui:4
 		dev-qt/qtsql:4
-		opencv3? ( media-libs/opencv:0/3.0[qt4] )
-		!opencv3? ( media-libs/opencv:0/2.4[qt4] )
+		opencv3? ( >=media-libs/opencv-3.1.0:=[qt4] )
+		!opencv3? ( <media-libs/opencv-3.1.0:=[qt4] )
 		)
 	qt5? (
 		app-text/poppler[qt5]
@@ -50,7 +48,7 @@ DEPEND="
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtsql:5
-		media-libs/opencv[qt5]
+		>=media-libs/opencv-3.1.0:=[qt5]
 		)
 	dev-libs/libevent
 	sys-devel/automake:*
@@ -88,15 +86,15 @@ src_configure() {
 }
 
 src_install() {
-	insinto /usr/share/"${MY_PN}"
+	insinto /usr/share/"${PN}"
 	doins -r images java qss translations/*.qm shortcuts.txt *.ini
-	#rm -r "${D}"/usr/share/"${MY_PN}"/translations/*.ts
-	dobin "${MY_PN}"
+	#rm -r "${D}"/usr/share/"${PN}"/translations/*.ts
+	dobin "${PN}"
 
 	dodoc -r help copyright changelog.txt license.html README.md README.txt install.txt
 
 	insinto /usr/share/applications
-	doins "${MY_PN}".desktop
+	doins "${PN}".desktop
 
 	doman "${S}"/man/nixnote2.1
 }

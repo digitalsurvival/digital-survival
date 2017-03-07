@@ -3,20 +3,19 @@
 
 EAPI=6
 
-inherit eutils cmake-utils
+inherit eutils cmake-utils linux-mod
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/terrycain/${PN}.git
 		git://github.com/terrycain/${PN}.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/terrycain/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Razer keyboard and mouse drivers for Linux"
-HOMEPAGE="http://pez2001.github.io/razer_chroma_drivers/"
+HOMEPAGE="https://pez2001.github.io/razer_chroma_drivers/"
 LICENSE="GPL-2"
 
 SLOT="0"

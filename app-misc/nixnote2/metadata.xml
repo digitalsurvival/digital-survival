@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Matthew Marchese</name>
+		<email>maffblaster@gentoo.org</email>
+	</maintainer>
+	<use>
+		<flag name="opencv3">Use <pkg>media-libs/opencv</pkg> 3 for video operations instead of <pkg>media-libs/opencv</pkg> 2</flag>
+		<flag name="qt4">Add support for the Qt 4 application and UI framework</flag>
+		<flag name="qt5">Add support for the Qt 5 application and UI framework</flag>
+	</use>
+</pkgmetadata>
