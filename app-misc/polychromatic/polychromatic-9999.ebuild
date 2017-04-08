@@ -9,10 +9,9 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/lah7/${PN}.git
 		git://github.com/lah7/${PN}.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/lah7/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="A graphical front end for managing Razer peripherals"
@@ -22,6 +21,6 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-python/setproctitle"
 
 RDEPEND=""
