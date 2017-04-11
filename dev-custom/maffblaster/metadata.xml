@@ -17,5 +17,6 @@
 		<flag name="portage">Tools to work with Portage</flag>
 		<flag name="consulting">Tools for poking, prodding, and observing</flag>
 		<flag name="backups">Software for backups</flag>
+		<flag name="systemd">Skip uptimed.</flag>
 	</use>
 </pkgmetadata>

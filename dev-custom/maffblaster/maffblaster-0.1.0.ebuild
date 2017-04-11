@@ -4,13 +4,13 @@
 EAPI=6
 
 DESCRIPTION="Metapackage for maffblaster's recommended applications"
-HOMEPAGE="maffblaster.github.io"
+HOMEPAGE="https://github.com/digitalsurvival/digital-survival"
 SRC_URI=""
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="+sys-fs +app-admin +dev-utils +communication +portage +consulting +backups"
+KEYWORDS="~amd64 ~x86"
+IUSE="+sys-fs +app-admin +dev-utils +communication +portage +consulting +backups systemd"
 
 RDEPEND="
 	sys-fs? (
@@ -23,8 +23,8 @@ RDEPEND="
 		sys-fs/jfsutils
 		sys-fs/ntfs3g
 		sys-fs/reiserfsprogs
+		net-fs/sshfs
 		sys-fs/squashfs-tools[xattr,xz,lz4,lzma,lzo]
-		sys-fs/sshfs
 		)
 	app-admin? (
 		app-admin/sudo
@@ -33,7 +33,7 @@ RDEPEND="
 		app-backup/snapper
 		app-benchmarks/i7z
 		app-editors/hexedit
-		app-misc/uptimed
+		!systemd? ( app-misc/uptimed )
 		net-misc/dhcpcd
 		sys-apps/ethtool
 		sys-block/parted
@@ -48,7 +48,8 @@ RDEPEND="
 	)
 	dev-utils? (
 		app-misc/wimlib[openssl,iso]
-		dev-util/meld	
+		dev-util/meld
+		app-misc/icdiff
 		app-text/wgetpaste
 		app-arch/cpio
 		app-arch/unzip
@@ -63,7 +64,7 @@ RDEPEND="
 		dev-vcs/subversion
 		dev-vcs/bzr
 		net-misc/zsync
-		media-video/vlc[-qt4,matroska,vpx,x265,opus,bluray,qt5,dvd,ffmpeg,mpeg,mad,wxwindows,aac,dts,a52,ogg,flac,theora,oggvorbis,freetype,bidi,xv,svga,gnutls,stream,vlm,httpd,cdda,vcd,cdio,live,lua]
+		media-video/vlc[matroska,vpx,x265,opus,bluray,dvd,ffmpeg,mpeg,mad,wxwindows,aac,dts,a52,ogg,flac,theora,oggvorbis,freetype,bidi,xv,svga,gnutls,stream,vlm,httpd,cdda,vcd,cdio,live,lua]
 	)
 	communication? (
 		www-client/chromium

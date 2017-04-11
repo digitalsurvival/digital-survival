@@ -1,41 +1,41 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils linux-info systemd python-single-r1 flag-o-matic
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cjdelisle/${PN}.git"
-	KEYWORDS=""
 else
-	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/cjdelisle/${PN}/archive/cjdns-v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 
-DESCRIPTION="Encrypted networking for regular people"
+DESCRIPTION="Encrypted IPv6 networking for regular people"
 HOMEPAGE="https://github.com/cjdelisle/cjdns"
 LICENSE="GPL-3"
 
 SLOT="0"
-IUSE=""
+IUSE="test"
 
 DEPEND=">=net-libs/nodejs-0.10.30
-	${PYTHON_DEPS}"
+		${PYTHON_DEPS}
+		"
 
 S="${WORKDIR}/cjdns-cjdns-v${PV}"
 
 pkg_setup() {
 	linux-info_pkg_setup
 	if ! linux_config_exists; then
-		eerror "Unable to check your kernel for TUN support"
+		eerror "Unable to check the kernel for TUN support!"
 	else
 		CONFIG_CHECK="~TUN"
-		ERROR_TUN="The kernel lacks TUN support."
+		ERROR_TUN="The kernel lacks TUN support. Enable for continuing."
 	fi
 }
 
