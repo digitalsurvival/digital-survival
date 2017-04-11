@@ -42,7 +42,7 @@ src_compile() {
 
 src_install() {
 	systemd_dounit contrib/systemd/cjdns.service
-	newinitd "${FILESDIR}/cjdns.runscript" cjdns
+	newinitd "${FILESDIR}/cjdns.openrc-run" cjdns
 
 	dodoc README.md
 	dodir doc/ contrib/

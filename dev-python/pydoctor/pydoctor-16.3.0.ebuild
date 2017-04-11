@@ -18,15 +18,21 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-DEPEND=" 
-	test? ( dev-python/nose[${PYTHON_USEDEP}]
-			dev-python/zope-interface[${PYTHON_USEDEP}]
-			dev-pytho:n/epydoc[${PYTHON_USEDEP}]
-			dev-python/twisted-core[${PYTHON_USEDEP}]
-			dev-python/twisted-web[${PYTHON_USEDEP}]
-			dev-python/docutils[${PYTHON_USEDEP}] )" 
-			# dev-python/pyflakes[${PYTHON_USEDEP}]
-RDEPEND=""
+COMMONDEPENDS="dev-python/epydoc[${PYTHON_USEDEP}]
+			   dev-python/twisted-web[${PYTHON_USEDEP}]"
+
+RDEPEND="${COMMONDEPENDS}
+		  dev-python/twisted-core[${PYTHON_USEDEP}]
+		  dev-python/docutils[${PYTHON_USEDEP}]"
+
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+			test? ( ${COMMONDEPENDS}
+				dev-python/contextlib2[${PYTHON_USEDEP}]
+				dev-python/pyflakes[${PYTHON_USEDEP}]
+				dev-python/coverage[${PYTHON_USEDEP}]
+				dev-python/nose[${PYTHON_USEDEP}]
+				dev-python/zope-interface[${PYTHON_USEDEP}]
+				)" 
 
 python_test() {
 	nosetests || die "Testing failed with ${EPYTHON}"
