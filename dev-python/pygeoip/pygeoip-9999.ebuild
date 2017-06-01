@@ -17,36 +17,31 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
 	https://github.com/appliedsec/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-DEPEND=" test? ( dev-python/tox[${PYTHON_USEDEP}]
-	dev-python/nose[${PYTHON_USEDEP}]
-	)
+DEPEND=" dev-python/setuptools[${PYTHON_USEDEP}]
+	test? ( dev-python/tox[${PYTHON_USEDEP}]
+			dev-python/nose[${PYTHON_USEDEP}] )
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}]
-	dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
-	)
-"
+		   dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}] )"
+			
 RDEPEND=""
 
 python_compile_all() {
-    use doc && emake -C docs sphinx
+    use doc && emake -C docs html
 }
 
 python_test() {
 	nosetests || die "Testing failed with ${EPYTHON}"
 }
 
-src_configure() {
-	econf --with-posix-regex
-}
-
 src_install() {
 	emake DESTDIR="${D}" install
-	dodoc FAQ NEWS README
-	dohtml EXTENDING.html ctags.html
+	dodoc README.*
+	dohtml _docs/_build/html/*
 }

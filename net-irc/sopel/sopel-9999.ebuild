@@ -12,8 +12,8 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/sopel-irc/${PN}.git
 		git://github.com/sopel-irc/${PN}.git"
 else
-	KEYWORDS="~x86 ~amd64"
 	SRC_URI="https://github.com/sopel-irc/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~x86 ~amd64"
 fi
 
 DESCRIPTION="A Python powered IRC bot"
@@ -44,7 +44,6 @@ python_test() {
 }
 
 pkg_postinst() {
-	elog "Thanks for installing Sopel! :)"
-	elog "More information can be found on Sopel's GitHub wiki at:"
+	elog "More information can be found on Sopel's GitHub wiki:"
 	elog "https://github.com/sopel-irc/sopel/wiki"
 }

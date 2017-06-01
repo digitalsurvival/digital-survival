@@ -8,14 +8,13 @@ inherit vcs-snapshot
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nylas/${PN}.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/nylas/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="An extensible mail client built with web technology"
-HOMEPAGE="https://nylas.com/N1"
+DESCRIPTION="An extensible mail client built with web technology (formerly N1)"
+HOMEPAGE="https://nylas.com/nylas-mail/"
 LICENSE="GPL-3"
 
 SLOT="0"

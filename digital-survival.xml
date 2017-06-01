@@ -3,13 +3,13 @@
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
     <name>digital-survival</name>
-    <description lang="en">a gentoo overlay containing a digital survival software set</description>
-    <homepage>https://github.com/digitalsurvival/digital-survival-overlay</homepage>
+    <description lang="en">an ebuild repository containing a digital survival software set</description>
+    <homepage>https://github.com/digitalsurvival/digital-survival</homepage>
     <owner type="person">
 		<email>maffblaster@gentoo.org</email>
 		<name>Matthew Marchese</name>
     </owner>
-    <source type="git">git://github.com/digitalsurvival/digital-survival-overlay.git</source>
-    <feed>https://github.com/DigitalSurvival/digital-survival-overlay/commits/master.atom</feed>
+    <source type="git">git://github.com/digitalsurvival/digital-survival.git</source>
+    <feed>https://github.com/DigitalSurvival/digital-survival/commits/master.atom</feed>
   </repo>
 </repositories>
