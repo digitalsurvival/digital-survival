@@ -5,9 +5,6 @@
 		<name>Matthew Marchese</name>
 		<email>maffblaster@gentoo.org</email>
 	</maintainer>
-	<longdescription>
-		Monospaced font with programming ligatures
-	</longdescription>
 	<use>
 		<!-- TODO -->
 	</use>
