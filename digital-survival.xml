@@ -3,7 +3,7 @@
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
     <name>digital-survival</name>
-    <description lang="en">an ebuild repository containing a digital survival software set</description>
+    <description lang="en">An ebuild repository focusing on secure communication, encryption, and text editors.</description>
     <homepage>https://github.com/digitalsurvival/digital-survival</homepage>
     <owner type="person">
 		<email>maffblaster@gentoo.org</email>
