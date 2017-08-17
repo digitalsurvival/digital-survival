@@ -26,6 +26,9 @@ IUSE="doc test"
 DEPEND=""
 
 # Todo pygeoip and praw
+# pip install --user sopel installed the following for sopel-6.5.0
+# praw-5.0.1 prawcore-0.11.0 pyenchant-1.6.8 pygeoip-0.3.2 requests-2.10.0 sopel-6.5.0 update-checker-0.16 xmltodict-0.11.0
+
 RDEPEND=" test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	dev-python/xmltodict[${PYTHON_USEDEP}]
@@ -33,7 +36,11 @@ RDEPEND=" test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 	dev-python/praw[${PYTHON_USEDEP}]
 	dev-python/pyenchant[${PYTHON_USEDEP}]
 	dev-python/pygeoip[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]"
+	dev-python/requests[${PYTHON_USEDEP}]
+
+	dev-python/ipython[${PYTHON_USEDEP}]
+	"
+    # Found a runtime dependency on ipython after _not_ configuring the meetbot module
 
 python_compile_all() {
     use doc && emake -C docs html
@@ -44,7 +51,6 @@ python_test() {
 }
 
 pkg_postinst() {
-	elog "Thanks for installing Sopel! :)"
-	elog "More information can be found on Sopel's GitHub wiki at:"
+	elog "Configuration information can be found on Sopel's GitHub wiki at:"
 	elog "https://github.com/sopel-irc/sopel/wiki"
 }
