@@ -8,7 +8,6 @@ inherit autotools linux-info
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://wimlib.net/${PN}"
-	KEYWORDS=""
 else
 	SRC_URI="https://wimlib.net/downloads/${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
@@ -23,9 +22,10 @@ IUSE="+fuse iso +ntfs openssl kernel_linux"
 
 COMMON_DEPEND="
 	dev-libs/libxml2
-	fuse? ( sys-fs/fuse sys-apps/attr )
+	fuse? ( sys-fs/fuse:0
+			sys-apps/attr )
 	ntfs? ( >=sys-fs/ntfs3g-2011.4.12[ntfsprogs] )
-	openssl? ( dev-libs/openssl )
+	openssl? ( dev-libs/openssl:0 )
 "
 
 DEPEND="${COMMON_DEPEND}
@@ -33,7 +33,10 @@ DEPEND="${COMMON_DEPEND}
 "
 
 RDEPEND="${COMMON_DEPEND}
-	iso? ( app-cdr/cdrkit sys-fs/mtools sys-boot/syslinux app-arch/cabextract )
+	iso? (	app-cdr/cdrtools
+			sys-fs/mtools
+			sys-boot/syslinux
+			app-arch/cabextract )
 "
 
 pkg_setup() {
