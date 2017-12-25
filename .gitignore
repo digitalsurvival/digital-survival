@@ -1,2 +1,6 @@
 *~
+# Various swap/tmp files for editors
+## kate
 *.kate-swp
+## vim
+*.swp
